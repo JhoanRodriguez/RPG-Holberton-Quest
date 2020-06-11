@@ -1,4 +1,4 @@
-from Models.Base import Base
+from Base import Base
 
 
 class Champion(Base):
