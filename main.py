@@ -6,23 +6,23 @@ screen = pygame.display.set_mode(size)
 run = True
 wait = [True, True, True]
 pygame.display.set_caption("RPG Holberton Quest")
-icon = pygame.image.load("../Images/Holberton.png")
+icon = pygame.image.load("./Images/Holberton.png")
 pygame.display.set_icon(icon)
 pygame.mouse.set_pos([400, 300])
 data = {}
 
 # Images loads
-gender1 = pygame.image.load("../Images/Male.png")
+gender1 = pygame.image.load("./Images/Male.png")
 gender1 = pygame.transform.scale(gender1, (150, 300))
-gender2 = pygame.image.load("../Images/Female.png")
+gender2 = pygame.image.load("./Images/Female.png")
 gender2 = pygame.transform.scale(gender2, (150, 300))
-race1 = pygame.image.load("../Images/Human.png")
+race1 = pygame.image.load("./Images/Human.png")
 race1 = pygame.transform.scale(race1, (150, 250))
-race2 = pygame.image.load("../Images/Dwarf.png")
+race2 = pygame.image.load("./Images/Dwarf.png")
 race2 = pygame.transform.scale(race2, (150, 250))
-race3 = pygame.image.load("../Images/Elf.png")
+race3 = pygame.image.load("./Images/Elf.png")
 race3 = pygame.transform.scale(race3, (150, 250))
-race4 = pygame.image.load("../Images/Orc.png")
+race4 = pygame.image.load("./Images/Orc.png")
 race4 = pygame.transform.scale(race4, (150, 250))
 
 
