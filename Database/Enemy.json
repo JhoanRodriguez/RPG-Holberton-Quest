@@ -1,0 +1,9 @@
+[
+    {
+        "health": 10,
+        "atkdamage": 13,
+        "defence": 5,
+        "magic": 5,
+        "speed": 9
+    }
+]
