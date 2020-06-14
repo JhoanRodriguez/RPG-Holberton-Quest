@@ -13,8 +13,10 @@ def fight(player, monster, damagetype):
         # player attacks first
         if damagetype == "atkdamage":
             damage = player.atkdamage - monster.defence
-            damage = monster.health - damage
-            monster.health(damage)
+            live = monster.health - damage
+            monster.health = live
+            print(
+                "{} atk with physicall damage and deals {} to the {}, the {} have {} of HP left", player.name, damage, )
             if monster.health <= 0:
                 return
         elif damagetype == "magic":

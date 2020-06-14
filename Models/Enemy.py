@@ -1,4 +1,4 @@
-from Base import Base
+from Models.Base import Base
 
 
 class Enemy(Base):
@@ -11,15 +11,17 @@ class Enemy(Base):
         self.xpcurrent = 0
         self.xptotal = 0 """
 
-        stats = super().load_json_file(name)
-        for item in stats:
-            if item == "health":
-                self.health(item)
-            elif item == "atkdamage":
-                self.atkdamage(item)
-            elif item == "defence":
-                self.defence(item)
-            elif item == "magic":
-                self.magic(item)
-            elif item == "speed":
-                self.speed(item)
+        stats = super().load_json_file("Enemy")
+        stats = stats[0]
+
+        for key, value in stats.items():
+            if key == "health":
+                self.health = value
+            elif key == "atkdamage":
+                self.atkdamage = value
+            elif key == "defence":
+                self.defence = value
+            elif key == "magic":
+                self.magic = value
+            elif key == "speed":
+                self.speed = value

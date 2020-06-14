@@ -8,23 +8,23 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 pygame.display.set_caption("Holberton Quest")
-icon = pygame.image.load("../Assets/Images/Holberton.png")
+icon = pygame.image.load("./Assets/Images/Holberton.png")
 pygame.display.set_icon(icon)
 
 # Load Banners
-b_play = utilities.n_render("../Assets/Images/banner.png", (250, 100))
-t_play = utilities.n_render("../Assets/Images/play.png", (150, 50))
+b_play = utilities.n_render("./Assets/Images/banner.png", (250, 100))
+t_play = utilities.n_render("./Assets/Images/play.png", (150, 50))
 
-e_play = utilities.n_render("../Assets/Images/banner.png", (250, 100))
-t_exit = utilities.n_render("../Assets/Images/exit.png", (150, 50))
+e_play = utilities.n_render("./Assets/Images/banner.png", (250, 100))
+t_exit = utilities.n_render("./Assets/Images/exit.png", (150, 50))
 
-l_play = utilities.n_render("../Assets/Images/banner.png", (250, 100))
-t_load = utilities.n_render("../Assets/Images/load.png", (150, 50))
+l_play = utilities.n_render("./Assets/Images/banner.png", (250, 100))
+t_load = utilities.n_render("./Assets/Images/load.png", (150, 50))
 
 # Load PostGame
-hippo = utilities.n_render("../Assets/Images/Holberton.png", (80, 130))
-holb = utilities.n_render("../Assets/Images/holbie.png", (300, 100))
-qust = utilities.n_render("../Assets/Images/quest.png", (200, 100))
+hippo = utilities.n_render("./Assets/Images/Holberton.png", (80, 130))
+holb = utilities.n_render("./Assets/Images/holbie.png", (300, 100))
+qust = utilities.n_render("./Assets/Images/quest.png", (200, 100))
 
 run = True
 
@@ -36,7 +36,7 @@ while run:
             run = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if utilities.p_mouse(mouse, (307, 502), (245, 300)):  # play btn
-                exec(open("selec.py").read())
+                exec(open("./Scenes/selec.py").read())
                 run = False
             elif utilities.p_mouse(mouse, (307, 502), (343, 400)):  # load char
                 pass

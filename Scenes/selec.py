@@ -2,28 +2,31 @@ from Scenes import utilities
 import os
 import pygame
 from Models.Champion import Champion
+from Models.Enemy import Enemy
+import fight
+
 run = True
 sub_scenes = [True, False, False]
 data = {}
 
 # Images loads
-gender1 = utilities.n_render("../Assets/Images/Male.png", (200, 400))
-gender2 = utilities.n_render("../Assets/Images/Female.png", (160, 350))
+gender1 = utilities.n_render("./Assets/Images/Male.png", (200, 400))
+gender2 = utilities.n_render("./Assets/Images/Female.png", (160, 350))
 
-race1 = utilities.n_render("../Assets/Images/Human.png", (200, 250))
-race2 = utilities.n_render("../Assets/Images/Dwarf.png", (150, 250))
-race3 = utilities.n_render("../Assets/Images/Elf.png", (200, 250))
-race4 = utilities.n_render("../Assets/Images/Orc.png", (150, 250))
+race1 = utilities.n_render("./Assets/Images/Human.png", (200, 250))
+race2 = utilities.n_render("./Assets/Images/Dwarf.png", (150, 250))
+race3 = utilities.n_render("./Assets/Images/Elf.png", (200, 250))
+race4 = utilities.n_render("./Assets/Images/Orc.png", (150, 250))
 
-frame_s = utilities.n_render("../Assets/Images/frame.png", (200, 395))
-frame_r = utilities.n_render("../Assets/Images/frame.png", (150, 200))
+frame_s = utilities.n_render("./Assets/Images/frame.png", (200, 395))
+frame_r = utilities.n_render("./Assets/Images/frame.png", (150, 200))
 
 # Text
 gender = utilities.r_text("GENDER", (220, 20, 60),
-                          "../Assets/Fonts/bitwise.ttf", 72)
+                          "./Assets/Fonts/bitwise.ttf", 72)
 
 race = utilities.r_text("RACE", (220, 20, 60),
-                        "../Assets/Fonts/bitwise.ttf", 72)
+                        "./Assets/Fonts/bitwise.ttf", 72)
 
 font = pygame.font.Font(None, 32)
 input_box = pygame.Rect(320, 550, 160, 32)
@@ -127,7 +130,13 @@ while run:
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
+        """ # test fight
         player = Champion(data["name"], data["race"], data["gender"])
+        enemy = Enemy("Wolf")
+        while(player.health > 0 and enemy.health > 0):
+            fight(player, enemy, "atkdamage")
+
+        sub_scenes[2] = False """
         pass
 
     pygame.display.update()
