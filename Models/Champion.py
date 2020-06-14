@@ -1,4 +1,4 @@
-from Base import Base
+from Models.Base import Base
 
 
 class Champion(Base):
@@ -14,30 +14,32 @@ class Champion(Base):
         self.xptotal = 0 """
 
         stats = super().load_json_file(race)
-        for item in stats:
-            if item == "health":
-                self.health(item)
-            elif item == "atkdamage":
-                self.atkdamage(item)
-            elif item == "defence":
-                self.defence(item)
-            elif item == "magic":
-                self.magic(item)
-            elif item == "speed":
-                self.speed(item)
+        stats = stats[0]
 
-    @property
+        for key, value in stats.items():
+            if key == "health":
+                self.health = value
+            elif key == "atkdamage":
+                self.atkdamage = value
+            elif key == "defence":
+                self.defence = value
+            elif key == "magic":
+                self.magic = value
+            elif key == "speed":
+                self.speed = value
+
+    @ property
     def race(self):
         return self.__race
 
-    @race.setter
+    @ race.setter
     def race(self, value):
         self.__race = value
 
-    @property
+    @ property
     def gender(self):
         return self.__gender
 
-    @gender.setter
+    @ gender.setter
     def gender(self, value):
         self.__gender = value
