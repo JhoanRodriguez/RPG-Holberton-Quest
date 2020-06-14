@@ -1,6 +1,6 @@
 import pygame
 import os
-import utilities
+from Scenes import utilities
 
 os.environ['SDL_VIDEO_WINDOW_POS'] = "250, 50"
 

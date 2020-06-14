@@ -1,7 +1,7 @@
-import pygame
+from Scenes import utilities
 import os
-import utilities
-
+import pygame
+from Models.Champion import Champion
 run = True
 sub_scenes = [True, False, False]
 data = {}
@@ -23,7 +23,7 @@ gender = utilities.r_text("GENDER", (220, 20, 60),
                           "../Assets/Fonts/bitwise.ttf", 72)
 
 race = utilities.r_text("RACE", (220, 20, 60),
-                          "../Assets/Fonts/bitwise.ttf", 72)
+                        "../Assets/Fonts/bitwise.ttf", 72)
 
 font = pygame.font.Font(None, 32)
 input_box = pygame.Rect(320, 550, 160, 32)
@@ -95,17 +95,23 @@ while run:
                 if utilities.p_mouse(mouse, (137, 213), (53, 270)):
                     data.update({"race": "Human"})
                     sub_scenes[1] = False
+                    sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (617, 735), (88, 265)):
                     data.update({"race": "Dwarf"})
                     sub_scenes[1] = False
+                    sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (126, 217), (345, 563)):
                     data.update({"race": "Elf"})
                     sub_scenes[1] = False
+                    sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (607, 697), (327, 562)):
                     data.update({"race": "Orc"})
                     sub_scenes[1] = False
+                    sub_scenes[2] = True
                 print(data)
 
+
+# For rendering
     if sub_scenes[0]:
         txt_surface = font.render(text, True, (color))
         screen.blit(gender1, (125, 100))
@@ -120,8 +126,12 @@ while run:
         screen.blit(race3, (75, 320))
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
+    elif sub_scenes[2]:
+        player = Champion(data["name"], data["race"], data["gender"])
+        pass
 
     pygame.display.update()
     screen.fill((50, 50, 50))
+
 
 pygame.quit()
