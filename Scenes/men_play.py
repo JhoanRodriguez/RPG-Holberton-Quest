@@ -53,10 +53,10 @@ while run:
 
     if run:
         screen.blit(icon, (10, 5))
-        screen.blit(p_name, (130, 30))
-        screen.blit(p_race, (500, 30))
-        screen.blit(p_health, (130, 65))
-        screen.blit(p_damage, (500, 65))
+        screen.blit(p_name, (140, 30))
+        screen.blit(p_race, (510, 30))
+        screen.blit(p_health, (140, 65))
+        screen.blit(p_damage, (510, 65))
 
         screen.blit(b_fight, (280, 150))
         screen.blit(fight, (335, 195))  # FIGHT
