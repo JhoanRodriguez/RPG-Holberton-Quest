@@ -1,5 +1,5 @@
 from Models.Base import Base
-
+import json
 
 class Champion(Base):
 
@@ -14,7 +14,6 @@ class Champion(Base):
         self.xptotal = 0 """
 
         stats = super().load_json_file(race)
-        print(stats)
         stats = stats[0]
 
         for key, value in stats.items():
@@ -44,3 +43,23 @@ class Champion(Base):
     @ gender.setter
     def gender(self, value):
         self.__gender = value
+
+    def serialize(self):
+        '''
+        Serializes the player to JSON.
+        '''
+
+        dic = {"name": self.name,
+                "health": self.health,
+                "atkdamage": self.atkdamage,
+                "defence": self.defence,
+                "magic": self.magic,
+                "speed": self.speed,
+                "race": self.race,
+                "gender": self.gender
+                }
+        
+        filename = self.name + ".json" 
+
+        with open("saves/" + filename, "w") as player:
+            player.write(json.dumps(dic))

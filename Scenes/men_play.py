@@ -47,11 +47,12 @@ while run:
             run = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if utilities.p_mouse(mouse, (309, 502), (195, 250)):
-                print("Fight!")
+                #exec(open("Scenes/scene_fight.py").read())
+                pass
             elif utilities.p_mouse(mouse, (309, 502), (293, 348)):
-                print("Save")
+                player.serialize()
             elif utilities.p_mouse(mouse, (309, 502), (395, 448)):
-                print("Exit")
+                exec(open("main.py").read())
 
     screen.blit(icon, (10, 5))
     screen.blit(p_name, (130, 30))

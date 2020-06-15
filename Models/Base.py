@@ -87,7 +87,9 @@ class Base:
         string representation of list_objs
         to a file
         """
-        filename = cls.__name__ + ".json"
+        
+        print(cls.__dict__)
+        #filename = cls.__getattribute__('name') + '.json'
         newlist = []
         if list_objs is None:
             cls.to_json_string(list_objs)
