@@ -1,4 +1,5 @@
 from Models.Base import Base
+import json
 
 
 class Champion(Base):
@@ -43,3 +44,23 @@ class Champion(Base):
     @ gender.setter
     def gender(self, value):
         self.__gender = value
+
+    def serialize(self):
+        '''
+        Serializes the player to JSON.
+        '''
+
+        dic = {"name": self.name,
+               "health": self.health,
+               "atkdamage": self.atkdamage,
+               "defence": self.defence,
+               "magic": self.magic,
+               "speed": self.speed,
+               "race": self.race,
+               "gender": self.gender
+               }
+
+        filename = self.name + ".json"
+
+        with open("Database/Saves/" + filename, "w") as player:
+            player.write(json.dumps(dic))
