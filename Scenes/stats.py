@@ -6,7 +6,9 @@ if s_stat:
                 "damage": player.atkdamage,
                 "magic": player.magic,
                 "speed": player.speed,
-                "weapon": player.weapon.name}
+                "weapon": player.weapon.name,
+                "armor": player.armor,
+                "defense": player.defense}
 
     back_ = utilities.r_text("BACK", (0, 0, 0),
                             "./Assets/Fonts/bitwise.ttf", 40)
@@ -15,26 +17,37 @@ if s_stat:
     stat_ = utilities.r_text("STATS", (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
-    health_ = utilities.r_text("{} > {}".format("HEALTH", p_stats["health"]), (255, 255, 255),
+    health_ = utilities.r_text("{} > {:.2f}".format("HEALTH", p_stats["health"]), (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
     weapon_ = utilities.r_text("{} > {}".format("WEAPON", p_stats["weapon"]), (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
-    damage_ = utilities.r_text("{} > {}".format("DAMAGE", p_stats["damage"]), (255, 255, 255),
+    damage_ = utilities.r_text("{} > {:.2f}".format("DAMAGE", p_stats["damage"]), (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
-    magic_ = utilities.r_text("{} > {}".format("MAGIC", p_stats["magic"]), (255, 255, 255),
+    magic_ = utilities.r_text("{} > {:.2f}".format("MAGIC", p_stats["magic"]), (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
-    speed_ = utilities.r_text("{} > {}".format("SPEED", p_stats["speed"]), (255, 255, 255),
+    speed_ = utilities.r_text("{} > {:.2f}".format("SPEED", p_stats["speed"]), (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 30)
 
+    armor_ = utilities.r_text("{} > {:.2f}".format("ARMOR", p_stats["armor"]), (255, 255, 255),
+                            "./Assets/Fonts/bitwise.ttf", 30)
+    
+    defense_ = utilities.r_text("{} > {:.2f}".format("DEFENSE", p_stats["defense"]), (255, 255, 255),
+                            "./Assets/Fonts/bitwise.ttf", 30)
+
+    w_dmg = utilities.r_text("{} > {:.2f}".format("DAMAGE", player.weapon.damage), (255, 255, 255),
+                            "./Assets/Fonts/bitwise.ttf", 30)
 
     screen.blit(back_, (530, 460))
     screen.blit(stat_, (380, 110))
-    screen.blit(health_, (300, 200))
-    screen.blit(speed_, (300, 240))
-    screen.blit(weapon_, (300, 280))
-    screen.blit(damage_, (300, 320))
-    screen.blit(magic_, (300, 360))
+    screen.blit(health_, (300, 160))
+    screen.blit(speed_, (300, 190))
+    screen.blit(damage_, (300, 220))
+    screen.blit(magic_, (300, 250))
+    screen.blit(defense_, (300, 280))
+    screen.blit(armor_, ((300, 310)))
+    screen.blit(weapon_, (300, 340))
+    screen.blit(w_dmg, (315, 368))
