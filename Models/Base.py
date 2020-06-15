@@ -89,7 +89,7 @@ class Base:
         """
 
         print(cls.__dict__)
-        #filename = cls.__getattribute__('name') + '.json'
+        # filename = cls.__getattribute__('name') + '.json'
         newlist = []
         if list_objs is None:
             cls.to_json_string(list_objs)
@@ -113,6 +113,17 @@ class Base:
         newlist = {}
         if json_file is not None:
             filename = "./Database/" + json_file + ".json"
+        try:
+            with open(filename, "r") as Myfile:
+                newlist = json.load(Myfile)
+        except Exception:
+            pass
+        return newlist
+
+    def load_save_json_file(self, json_file):
+        newlist = {}
+        if json_file is not None:
+            filename = "./Database/Saves/" + json_file + ".json"
         try:
             with open(filename, "r") as Myfile:
                 newlist = json.load(Myfile)

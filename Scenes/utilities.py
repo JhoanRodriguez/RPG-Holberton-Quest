@@ -46,6 +46,11 @@ def fight(player, monster, damagetype):
             print(
                 "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
+                print("{} died".format(monster.name))
+                stats = player.load_save_json_file(player.name)
+                for key, value in stats.items():
+                    if key == "health":
+                        player.health = value
                 return
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -55,6 +60,11 @@ def fight(player, monster, damagetype):
             print(
                 "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
+                print("{} died".format(monster.name))
+                stats = player.load_save_json_file(player.name)
+                for key, value in stats.items():
+                    if key == "health":
+                        player.health = value
                 return
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
@@ -65,7 +75,7 @@ def fight(player, monster, damagetype):
         if player.health <= 0:
             return
     else:
-        # player attacks first
+        # Enemy attacks first
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
         live = player.health - damage
@@ -82,6 +92,11 @@ def fight(player, monster, damagetype):
             print(
                 "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
+                print("{} died".format(monster.name))
+                stats = player.load_save_json_file(player.name)
+                for key, value in stats.items():
+                    if key == "health":
+                        player.health = value
                 return
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -91,4 +106,9 @@ def fight(player, monster, damagetype):
             print(
                 "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
+                print("{} died".format(monster.name))
+                stats = player.load_save_json_file(player.name)
+                for key, value in stats.items():
+                    if key == "health":
+                        player.health = value
                 return
