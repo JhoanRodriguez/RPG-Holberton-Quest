@@ -7,11 +7,6 @@ class Enemy(Base):
     def __init__(self, name="Enemy"):
         super().__init__(name)
 
-        """ self.level = 1
-        self.xpnextlvl = 0
-        self.xpcurrent = 0
-        self.xptotal = 0 """
-
         self.weapon = Equipment("Knife")
         self.Helmet = Equipment("Helmet")
         self.Gauntlets = Equipment("Gauntlets")

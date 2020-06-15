@@ -10,11 +10,8 @@ class Base:
         self.defense = 10
         self.magic = 10
         self.speed = 10
-
-        """ self.level = 1
-        self.xpnextlvl = 0
-        self.xpcurrent = 0
-        self.xptotal = 0 """
+        self.exp = 0
+        self.lvl = 1
 
     @property
     def name(self):
@@ -187,3 +184,7 @@ class Base:
                                 self.Leg.damage = value
                             elif idx == "defense":
                                 self.Leg.defense = value
+            elif key == "lvl":
+                self.lvl = value
+            elif key == "exp":
+                self.exp = value

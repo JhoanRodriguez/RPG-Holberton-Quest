@@ -10,10 +10,6 @@ class Champion(Base):
         self.race = race
         self.gender = gender
         self.avatar = Avatar
-        """ self.level = 1
-        self.xpnextlvl = 0
-        self.xpcurrent = 0
-        self.xptotal = 0 """
 
         self.weapon = Equipment("Knife")
         self.Helmet = Equipment("Helmet")
@@ -64,6 +60,8 @@ class Champion(Base):
                "race": self.race,
                "gender": self.gender,
                "avatar": self.avatar,
+               "lvl": self.lvl,
+               "exp": self.exp,
                "weapon": {"name": self.weapon.name,
                           "damage": self.weapon.damage,
                           "defense": self.weapon.defense},
