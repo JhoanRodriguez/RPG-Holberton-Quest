@@ -1,7 +1,6 @@
 from Models.Champion import Champion
 from Models.Enemy import Enemy
 from Scenes import utilities
-import fight
 
 run = True
 sub_scenes = [True, False, False]
@@ -130,6 +129,7 @@ while run:
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
         player = Champion(data["name"], data["race"], data["gender"])
+        player.serialize()
         exec(open("Scenes/men_play.py").read())
         run = False
 

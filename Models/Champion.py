@@ -1,6 +1,7 @@
 from Models.Base import Base
 import json
 
+
 class Champion(Base):
 
     def __init__(self, name="Anonymous", race="Human", gender="Male"):
@@ -50,16 +51,16 @@ class Champion(Base):
         '''
 
         dic = {"name": self.name,
-                "health": self.health,
-                "atkdamage": self.atkdamage,
-                "defence": self.defence,
-                "magic": self.magic,
-                "speed": self.speed,
-                "race": self.race,
-                "gender": self.gender
-                }
-        
-        filename = self.name + ".json" 
+               "health": self.health,
+               "atkdamage": self.atkdamage,
+               "defence": self.defence,
+               "magic": self.magic,
+               "speed": self.speed,
+               "race": self.race,
+               "gender": self.gender
+               }
 
-        with open("saves/" + filename, "w") as player:
+        filename = self.name + ".json"
+
+        with open("Database/Saves/" + filename, "w") as player:
             player.write(json.dumps(dic))
