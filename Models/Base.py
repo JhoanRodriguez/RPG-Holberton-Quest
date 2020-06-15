@@ -7,7 +7,7 @@ class Base:
         self.name = name
         self.health = 10
         self.atkdamage = 10
-        self.defence = 10
+        self.defense = 10
         self.magic = 10
         self.speed = 10
 
@@ -44,13 +44,13 @@ class Base:
             self.__atkdamage = value
 
     @property
-    def defence(self):
-        return self.__defence
+    def defense(self):
+        return self.__defense
 
-    @defence.setter
-    def defence(self, value):
+    @defense.setter
+    def defense(self, value):
         if value < 101:
-            self.__defence = value
+            self.__defense = value
 
     @property
     def magic(self):
