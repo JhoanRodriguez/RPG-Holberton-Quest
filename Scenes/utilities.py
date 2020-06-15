@@ -73,6 +73,7 @@ def fight(player, monster, damagetype):
         print(
             "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
+            print("{} died".format(player.name))
             return
     else:
         # Enemy attacks first
@@ -83,6 +84,7 @@ def fight(player, monster, damagetype):
         print(
             "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
+            print("{} died".format(player.name))
             return
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
