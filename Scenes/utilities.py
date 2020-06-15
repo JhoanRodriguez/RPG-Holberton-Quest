@@ -1,4 +1,5 @@
 import pygame
+import random
 import json
 
 
@@ -27,7 +28,7 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
 
     f = pygame.font.Font(font, size)
 
-    #f = pygame.font.SysFont(font, size)
+    # f = pygame.font.SysFont(font, size)
 
     t_surface = f.render(text, False, color)
 
@@ -38,50 +39,56 @@ def fight(player, monster, damagetype):
     if player.speed > monster.speed:
         # player attacks first
         if damagetype == "atkdamage":
-            damage = player.atkdamage - monster.defense
+            damage = (player.atkdamage + player.weapon.damage *
+                      (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
             live = monster.health - damage
             monster.health = live
             print(
-                "{} atk with physicall damage and deals {} to the {}, now he have {} of HP left".format(player.name, damage, monster.name, monster.health))
+                "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 return
         elif damagetype == "magic":
-            damage = player.magic - monster.defense
+            damage = (player.magic + player.weapon.damage *
+                      (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
             live = monster.health - damage
             monster.health = live
             print(
-                "{} atk with magic and deals {} to the {}, now he have {} of HP left".format(player.name, damage, monster.name, monster.health))
+                "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 return
-        damage = monster.atkdamage - player.defense
+        damage = (monster.atkdamage + monster.weapon.damage *
+                  (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
         live = player.health - damage
         player.health = live
         print(
-            "{} atk with physicall damage and deals {} to the {}, now he have {} of HP left".format(monster.name, damage, player.name, player.health))
+            "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             return
     else:
         # player attacks first
-        damage = monster.atkdamage - player.defense
+        damage = (monster.atkdamage + monster.weapon.damage *
+                  (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
         live = player.health - damage
         player.health = live
         print(
-            "{} atk with physicall damage and deals {} to the {}, now he have {} of HP left".format(monster.name, damage, player.name, player.health))
+            "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             return
         if damagetype == "atkdamage":
-            damage = player.atkdamage - monster.defense
+            damage = (player.atkdamage + player.weapon.damage *
+                      (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
             live = monster.health - damage
             monster.health = live
             print(
-                "{} atk with physicall damage and deals {} to the {}, now he have {} of HP left".format(player.name, damage, monster.name, monster.health))
+                "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 return
         elif damagetype == "magic":
-            damage = player.magic - monster.defense
+            damage = (player.magic + player.weapon.damage *
+                      (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
             live = monster.health - damage
             monster.health = live
             print(
-                "{} atk with magic and deals {} to the {}, now he have {} of HP left".format(player.name, damage, monster.name, monster.health))
+                "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 return

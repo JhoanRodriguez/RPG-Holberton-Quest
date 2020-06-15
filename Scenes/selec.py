@@ -1,6 +1,7 @@
 from Models.Champion import Champion
 from Models.Enemy import Enemy
 from Scenes import utilities
+from Models.Equipment import Equipment
 
 run = True
 sub_scenes = [True, False, False]

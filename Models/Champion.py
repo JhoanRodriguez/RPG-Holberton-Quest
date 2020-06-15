@@ -1,4 +1,5 @@
 from Models.Base import Base
+from Models.Equipment import Equipment
 import json
 
 
@@ -13,6 +14,14 @@ class Champion(Base):
         self.xpnextlvl = 0
         self.xpcurrent = 0
         self.xptotal = 0 """
+
+        self.weapon = Equipment("Knife")
+        self.Helmet = Equipment("Helmet")
+        self.Gauntlets = Equipment("Gauntlets")
+        self.Chest = Equipment("Chest")
+        self.Leg = Equipment("Leg")
+        self.armor = self.weapon.defense + self.Helmet.defense + \
+            self.Gauntlets.defense + self.Chest.defense + self.Leg.defense
 
         stats = super().load_json_file(race)
         stats = stats[0]
@@ -45,6 +54,14 @@ class Champion(Base):
     def gender(self, value):
         self.__gender = value
 
+    @property
+    def armor(self):
+        return self.__armor
+
+    @armor.setter
+    def armor(self, value):
+        self.__armor = value
+
     def serialize(self):
         '''
         Serializes the player to JSON.
@@ -57,9 +74,24 @@ class Champion(Base):
                "magic": self.magic,
                "speed": self.speed,
                "race": self.race,
-               "gender": self.gender
+               "gender": self.gender,
+               "weapon": {"name": self.weapon.name,
+                          "damage": self.weapon.damage,
+                          "defense": self.weapon.defense},
+               "armor": {"Helmet": {"name": self.Helmet.name,
+                                    "damage": self.Helmet.damage,
+                                    "defense": self.Helmet.defense},
+                         "Gauntlets": {"name": self.Gauntlets.name,
+                                       "damage": self.Gauntlets.damage,
+                                       "defense": self.Gauntlets.defense},
+                         "Chest": {"name": self.Chest.name,
+                                   "damage": self.Chest.damage,
+                                   "defense": self.Chest.defense},
+                         "Leg": {"name": self.Leg.name,
+                                 "damage": self.Leg.damage,
+                                 "defense": self.Leg.defense}
+                         }
                }
-
         filename = self.name + ".json"
 
         with open("Database/Saves/" + filename, "w") as player:
