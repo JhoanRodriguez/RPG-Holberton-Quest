@@ -14,6 +14,7 @@ class Champion(Base):
         self.xptotal = 0 """
 
         stats = super().load_json_file(race)
+        print(stats)
         stats = stats[0]
 
         for key, value in stats.items():
