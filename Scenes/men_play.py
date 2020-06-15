@@ -52,21 +52,23 @@ while run:
                 player.serialize()
             elif utilities.p_mouse(mouse, (309, 502), (395, 448)):
                 exec(open("main.py").read())
+                run = False
 
-    screen.blit(icon, (10, 5))
-    screen.blit(p_name, (130, 30))
-    screen.blit(p_race, (500, 30))
-    screen.blit(p_health, (130, 65))
-    screen.blit(p_damage, (500, 65))
+    if run:
+        screen.blit(icon, (10, 5))
+        screen.blit(p_name, (130, 30))
+        screen.blit(p_race, (500, 30))
+        screen.blit(p_health, (130, 65))
+        screen.blit(p_damage, (500, 65))
 
-    screen.blit(b_fight, (280, 150))
-    screen.blit(fight, (335, 195))  # FIGHT
+        screen.blit(b_fight, (280, 150))
+        screen.blit(fight, (335, 195))  # FIGHT
 
-    screen.blit(b_fight, (280, 250))
-    screen.blit(save, (335, 295))  # SAVE
+        screen.blit(b_fight, (280, 250))
+        screen.blit(save, (335, 295))  # SAVE
 
-    screen.blit(b_fight, (280, 350))
-    screen.blit(exit, (350, 400))  # EXIT
+        screen.blit(b_fight, (280, 350))
+        screen.blit(exit, (350, 400))  # EXIT
 
-    pygame.display.update()
-    screen.fill((50, 50, 50))
+        pygame.display.update()
+        screen.fill((50, 50, 50))

@@ -10,9 +10,7 @@ data = {}
 gender1 = utilities.n_render("./Assets/Images/Male.png", (200, 400))
 gender2 = utilities.n_render("./Assets/Images/Female.png", (160, 350))
 
-race1 = utilities.n_render("./Assets/Images/Human.png", (200, 250))
 race2 = utilities.n_render("./Assets/Images/Dwarf.png", (150, 250))
-race3 = utilities.n_render("./Assets/Images/Elf.png", (200, 250))
 race4 = utilities.n_render("./Assets/Images/Orc.png", (150, 250))
 
 frame_s = utilities.n_render("./Assets/Images/frame.png", (200, 395))
@@ -38,24 +36,7 @@ while run:
     pygame.display.update()
     screen.fill((50, 50, 50))
     mouse = pygame.mouse.get_pos()
-
-    # Anim Selector
-    if sub_scenes[0]:
-        if utilities.p_mouse(mouse, (174, 270), (160, 455)):
-            screen.blit(frame_s, (125, 102))
-        elif utilities.p_mouse(mouse, (525, 611), (180, 450)):
-            screen.blit(frame_s, (480, 102))
-
-    if sub_scenes[1]:
-        if utilities.p_mouse(mouse, (137, 213), (53, 270)):
-            screen.blit(frame_r, (100, 30))
-        elif utilities.p_mouse(mouse, (617, 735), (88, 265)):
-            screen.blit(frame_r, (600, 30))
-        elif utilities.p_mouse(mouse, (126, 217), (345, 563)):
-            screen.blit(frame_r, (85, 300))
-        elif utilities.p_mouse(mouse, (607, 697), (327, 562)):
-            screen.blit(frame_r, (580, 300))
-
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -111,6 +92,24 @@ while run:
                     sub_scenes[1] = False
                     sub_scenes[2] = True
 
+# Anim Selector
+    if sub_scenes[0]:
+        if utilities.p_mouse(mouse, (174, 270), (160, 455)):
+            screen.blit(frame_s, (125, 102))
+        elif utilities.p_mouse(mouse, (525, 611), (180, 450)):
+            screen.blit(frame_s, (480, 102))
+
+    if sub_scenes[1]:
+        if utilities.p_mouse(mouse, (137, 213), (53, 270)):
+            screen.blit(frame_r, (100, 30))
+        elif utilities.p_mouse(mouse, (617, 735), (88, 265)):
+            screen.blit(frame_r, (600, 30))
+        elif utilities.p_mouse(mouse, (126, 217), (345, 563)):
+            screen.blit(frame_r, (85, 300))
+        elif utilities.p_mouse(mouse, (607, 697), (327, 562)):
+            screen.blit(frame_r, (580, 300))
+
+
 
 # For rendering
     if sub_scenes[0]:
@@ -122,6 +121,16 @@ while run:
         pygame.draw.rect(screen, color, input_box, 2)
         pygame.display.flip()
     elif sub_scenes[1]:
+        if data["gender"] == "Male":
+            race1 = utilities.n_render("./Assets/Images/Human.png", (200, 250))
+        else:
+            race1 = utilities.n_render("./Assets/Images/Human2.png", (200, 250))
+
+        if data["gender"] == "Male":
+            race3 = utilities.n_render("./Assets/Images/Elf.png", (200, 250))
+        else:
+            race3 = utilities.n_render("./Assets/Images/Elf2.png", (200, 250))
+
         screen.blit(race1, (75, 30))
         screen.blit(race2, (600, 30))
         screen.blit(race3, (75, 320))
