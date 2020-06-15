@@ -130,6 +130,7 @@ while run:
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
+
         """ # test fight
         player = Champion(data["name"], data["race"], data["gender"])
         enemy = Enemy("Wolf")

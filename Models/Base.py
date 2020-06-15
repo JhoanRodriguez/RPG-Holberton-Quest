@@ -129,7 +129,8 @@ class Base:
     def load_json_file(self, json_file):
         newlist = {}
         if json_file is not None:
-            filename = "../Database/" + json_file + ".json"
+            filename = "./Database/" + json_file + ".json"
+            print(filename)
         try:
             with open(filename, "r") as Myfile:
                 newlist = json.load(Myfile)
