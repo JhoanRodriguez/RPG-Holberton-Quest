@@ -38,7 +38,7 @@ def fight(player, monster, damagetype):
     if player.speed > monster.speed:
         # player attacks first
         if damagetype == "atkdamage":
-            damage = player.atkdamage - monster.defence
+            damage = player.atkdamage - monster.defense
             live = monster.health - damage
             monster.health = live
             print(
@@ -46,14 +46,14 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 return
         elif damagetype == "magic":
-            damage = player.magic - monster.defence
+            damage = player.magic - monster.defense
             live = monster.health - damage
             monster.health = live
             print(
                 "{} atk with magic and deals {} to the {}, now he have {} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 return
-        damage = monster.atkdamage - player.defence
+        damage = monster.atkdamage - player.defense
         live = player.health - damage
         player.health = live
         print(
@@ -62,7 +62,7 @@ def fight(player, monster, damagetype):
             return
     else:
         # player attacks first
-        damage = monster.atkdamage - player.defence
+        damage = monster.atkdamage - player.defense
         live = player.health - damage
         player.health = live
         print(
@@ -70,7 +70,7 @@ def fight(player, monster, damagetype):
         if player.health <= 0:
             return
         if damagetype == "atkdamage":
-            damage = player.atkdamage - monster.defence
+            damage = player.atkdamage - monster.defense
             live = monster.health - damage
             monster.health = live
             print(
@@ -78,7 +78,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 return
         elif damagetype == "magic":
-            damage = player.magic - monster.defence
+            damage = player.magic - monster.defense
             live = monster.health - damage
             monster.health = live
             print(

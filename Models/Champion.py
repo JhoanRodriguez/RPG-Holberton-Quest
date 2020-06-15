@@ -22,8 +22,8 @@ class Champion(Base):
                 self.health = value
             elif key == "atkdamage":
                 self.atkdamage = value
-            elif key == "defence":
-                self.defence = value
+            elif key == "defense":
+                self.defense = value
             elif key == "magic":
                 self.magic = value
             elif key == "speed":
@@ -53,7 +53,7 @@ class Champion(Base):
         dic = {"name": self.name,
                "health": self.health,
                "atkdamage": self.atkdamage,
-               "defence": self.defence,
+               "defense": self.defense,
                "magic": self.magic,
                "speed": self.speed,
                "race": self.race,

@@ -19,8 +19,8 @@ class Enemy(Base):
                 self.health = value
             elif key == "atkdamage":
                 self.atkdamage = value
-            elif key == "defence":
-                self.defence = value
+            elif key == "defense":
+                self.defense = value
             elif key == "magic":
                 self.magic = value
             elif key == "speed":
