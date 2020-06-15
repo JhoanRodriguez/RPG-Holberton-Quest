@@ -2,6 +2,7 @@ from Models.Champion import Champion
 from Models.Enemy import Enemy
 from Scenes import utilities
 from Models.Equipment import Equipment
+import random
 
 run = True
 sub_scenes = [True, False, False]
@@ -78,18 +79,34 @@ while run:
             elif sub_scenes[1]:
                 if utilities.p_mouse(mouse, (137, 213), (53, 270)):
                     data.update({"race": "Human"})
+                    if data['gender'] == "Male":
+                        data.update({"avatar": "Assets/Player/Human/Man/m_human{}.png".format(random.randint(0, 1))})
+                    else:
+                        data.update({"avatar": "Assets/Player/Human/Woman/w_human{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (617, 735), (88, 265)):
                     data.update({"race": "Dwarf"})
+                    if data['gender'] == "Male":
+                        data.update({"avatar": "Assets/Player/Dwarf/Man/m_dwarf{}.png".format(random.randint(0, 1))})
+                    else:
+                        data.update({"avatar": "Assets/Player/Dwarf/Woman/w_dwarf{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (126, 217), (345, 563)):
                     data.update({"race": "Elf"})
+                    if data['gender'] == "Male":
+                        data.update({"avatar": "Assets/Player/Elf/Man/m_elf{}.png".format(random.randint(0, 1))})
+                    else:
+                        data.update({"avatar": "Assets/Player/Elf/Woman/w_elf{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (607, 697), (327, 562)):
                     data.update({"race": "Orc"})
+                    if data['gender'] == "Male":
+                        data.update({"avatar": "Assets/Player/Orc/Man/m_orc0.png"})
+                    else:
+                        data.update({"avatar": "Assets/Player/Orc/Woman/w_orc0.png"})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
 
@@ -138,8 +155,7 @@ while run:
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
-        player = Champion(data["name"], data["race"], data["gender"])
-        player.serialize()
+        player = Champion(data["name"], data["race"], data["gender"], data["avatar"])
         exec(open("Scenes/men_play.py").read())
         run = False
 

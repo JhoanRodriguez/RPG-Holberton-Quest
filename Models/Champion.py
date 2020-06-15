@@ -5,11 +5,11 @@ import json
 
 class Champion(Base):
 
-    def __init__(self, name="Anonymous", race="Human", gender="Male"):
+    def __init__(self, name="Anonymous", race="Human", gender="Male", Avatar=""):
         super().__init__(name)
         self.race = race
         self.gender = gender
-
+        self.avatar = Avatar
         """ self.level = 1
         self.xpnextlvl = 0
         self.xpcurrent = 0
@@ -75,6 +75,7 @@ class Champion(Base):
                "speed": self.speed,
                "race": self.race,
                "gender": self.gender,
+               "avatar": self.avatar,
                "weapon": {"name": self.weapon.name,
                           "damage": self.weapon.damage,
                           "defense": self.weapon.defense},

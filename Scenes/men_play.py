@@ -17,10 +17,7 @@ life_t = {'Human': 10,
           'Dwarf': 9,
           'Elf': 9}
 
-if player.gender == 'Male':
-    icon = utilities.n_render("./Assets/Images/man_avatar.png", (110, 100))
-else:
-    icon = utilities.n_render("./Assets/Images/woman_avatar.png", (110, 100))
+icon = utilities.n_render(player.avatar, (110, 100))
 
 p_name = utilities.r_text("Name: " + player.name, (205, 92, 92),
                           "./Assets/Fonts/bitwise.ttf", 35)
