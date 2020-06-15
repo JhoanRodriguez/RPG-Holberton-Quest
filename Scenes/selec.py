@@ -1,8 +1,6 @@
-from Scenes import utilities
-import os
-import pygame
 from Models.Champion import Champion
 from Models.Enemy import Enemy
+from Scenes import utilities
 import fight
 
 run = True
@@ -29,7 +27,7 @@ race = utilities.r_text("RACE", (220, 20, 60),
                         "./Assets/Fonts/bitwise.ttf", 72)
 
 font = pygame.font.Font(None, 32)
-input_box = pygame.Rect(320, 550, 160, 32)
+input_box = pygame.Rect(320, 550, 180, 32)
 color_inactive = (165, 42, 42)
 color_active = (220, 20, 60)
 color = color_inactive
@@ -38,6 +36,8 @@ active = False
 
 # Game loop
 while run:
+    pygame.display.update()
+    screen.fill((50, 50, 50))
     mouse = pygame.mouse.get_pos()
 
     # Anim Selector
@@ -111,7 +111,6 @@ while run:
                     data.update({"race": "Orc"})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
-                print(data)
 
 
 # For rendering
@@ -120,7 +119,7 @@ while run:
         screen.blit(gender1, (125, 100))
         screen.blit(gender2, (500, 125))
         screen.blit(gender, (260, 25))
-        screen.blit(txt_surface, (input_box.x + 10, input_box.y + 5))
+        screen.blit(txt_surface, (input_box.x + 5, input_box.y + 5))
         pygame.draw.rect(screen, color, input_box, 2)
         pygame.display.flip()
     elif sub_scenes[1]:
@@ -130,17 +129,8 @@ while run:
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
-        """ # test fight
         player = Champion(data["name"], data["race"], data["gender"])
-        enemy = Enemy("Wolf")
-        while(player.health > 0 and enemy.health > 0):
-            fight(player, enemy, "atkdamage")
-
-        sub_scenes[2] = False """
-        pass
-
-    pygame.display.update()
-    screen.fill((50, 50, 50))
-
+        exec(open("Scenes/men_play.py").read())
+        run = False
 
 pygame.quit()

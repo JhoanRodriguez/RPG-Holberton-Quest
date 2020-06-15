@@ -87,7 +87,9 @@ class Base:
         string representation of list_objs
         to a file
         """
-        filename = cls.__name__ + ".json"
+        
+        print(cls.__dict__)
+        #filename = cls.__getattribute__('name') + '.json'
         newlist = []
         if list_objs is None:
             cls.to_json_string(list_objs)
@@ -107,29 +109,10 @@ class Base:
             return []
         return json.loads(json_string)
 
-    @classmethod
-    def load_from_file(cls):
-        """
-        This function returns a list
-        of instances
-        """
-        filename = cls.__name__ + ".json"
-        newlist = []
-        if cls is None:
-            return newlist
-        try:
-            with open(filename, "r") as Myfile:
-                newlist = cls.from_json_string(Myfile.read())
-            for item in range(len(newlist)):
-                newlist[item] = cls.create(**newlist[item])
-        except Exception:
-            pass
-        return newlist
-
     def load_json_file(self, json_file):
         newlist = {}
         if json_file is not None:
-            filename = "../Database/" + json_file + ".json"
+            filename = "./Database/" + json_file + ".json"
         try:
             with open(filename, "r") as Myfile:
                 newlist = json.load(Myfile)
