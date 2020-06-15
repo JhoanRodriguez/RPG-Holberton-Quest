@@ -38,7 +38,7 @@ while run:
     pygame.display.update()
     screen.fill((50, 50, 50))
     mouse = pygame.mouse.get_pos()
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -80,33 +80,41 @@ while run:
                 if utilities.p_mouse(mouse, (137, 213), (53, 270)):
                     data.update({"race": "Human"})
                     if data['gender'] == "Male":
-                        data.update({"avatar": "Assets/Player/Human/Man/m_human{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Human/Man/m_human{}.png".format(random.randint(0, 1))})
                     else:
-                        data.update({"avatar": "Assets/Player/Human/Woman/w_human{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Human/Woman/w_human{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (617, 735), (88, 265)):
                     data.update({"race": "Dwarf"})
                     if data['gender'] == "Male":
-                        data.update({"avatar": "Assets/Player/Dwarf/Man/m_dwarf{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Dwarf/Man/m_dwarf{}.png".format(random.randint(0, 1))})
                     else:
-                        data.update({"avatar": "Assets/Player/Dwarf/Woman/w_dwarf{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Dwarf/Woman/w_dwarf{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (126, 217), (345, 563)):
                     data.update({"race": "Elf"})
                     if data['gender'] == "Male":
-                        data.update({"avatar": "Assets/Player/Elf/Man/m_elf{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Elf/Man/m_elf{}.png".format(random.randint(0, 1))})
                     else:
-                        data.update({"avatar": "Assets/Player/Elf/Woman/w_elf{}.png".format(random.randint(0, 1))})
+                        data.update(
+                            {"avatar": "Assets/Player/Elf/Woman/w_elf{}.png".format(random.randint(0, 1))})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
                 elif utilities.p_mouse(mouse, (607, 697), (327, 562)):
                     data.update({"race": "Orc"})
                     if data['gender'] == "Male":
-                        data.update({"avatar": "Assets/Player/Orc/Man/m_orc0.png"})
+                        data.update(
+                            {"avatar": "Assets/Player/Orc/Man/m_orc0.png"})
                     else:
-                        data.update({"avatar": "Assets/Player/Orc/Woman/w_orc0.png"})
+                        data.update(
+                            {"avatar": "Assets/Player/Orc/Woman/w_orc0.png"})
                     sub_scenes[1] = False
                     sub_scenes[2] = True
 
@@ -128,7 +136,6 @@ while run:
             screen.blit(frame_r, (580, 300))
 
 
-
 # For rendering
     if sub_scenes[0]:
         txt_surface = font.render(text, True, (color))
@@ -142,7 +149,8 @@ while run:
         if data["gender"] == "Male":
             race1 = utilities.n_render("./Assets/Images/Human.png", (200, 250))
         else:
-            race1 = utilities.n_render("./Assets/Images/Human2.png", (200, 250))
+            race1 = utilities.n_render(
+                "./Assets/Images/Human2.png", (200, 250))
 
         if data["gender"] == "Male":
             race3 = utilities.n_render("./Assets/Images/Elf.png", (200, 250))
@@ -155,7 +163,9 @@ while run:
         screen.blit(race4, (600, 320))
         screen.blit(race, (310, 250))
     elif sub_scenes[2]:
-        player = Champion(data["name"], data["race"], data["gender"], data["avatar"])
+        player = Champion(data["name"], data["race"],
+                          data["gender"], data["avatar"])
+        player.serialize()
         exec(open("Scenes/men_play.py").read())
         run = False
 

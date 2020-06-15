@@ -2,7 +2,7 @@ class Equipment:
 
     def __init__(self, name="Weapon/Armor"):
         self.name = name
-        self.damage = 5
+        self.damage = 0
         self.defense = 0
 
     @property

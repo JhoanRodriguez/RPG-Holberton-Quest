@@ -1,22 +1,22 @@
-#monster = Enemy("Enemy")
-
-# while(player.health > 0 and monster.health > 0):
-#    utilities.fight(player, monster, "atkdamage")
-
 back_fight = "Assets/BFights/bb{}.png".format(random.randint(0, 6))
 
 back = utilities.n_render(back_fight, (800, 600))
 bat_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 200))
 avatar = utilities.n_render(player.avatar, (110, 100))
 
-attack = utilities.r_text("Attack:", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 30)
-phy = utilities.r_text("Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+attack = utilities.r_text("Attack:", (0, 0, 0),
+                          "./Assets/Fonts/bitwise.ttf", 30)
+phy = utilities.r_text("Physical", (255, 255, 255),
+                       "./Assets/Fonts/bitwise.ttf", 30)
 magic = utilities.r_text("Magic:", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 30)
-chol = utilities.r_text("Cholera", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+chol = utilities.r_text("Cholera", (255, 255, 255),
+                        "./Assets/Fonts/bitwise.ttf", 30)
 
-surrender = utilities.r_text("Surrender", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+surrender = utilities.r_text(
+    "Surrender", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
 
-stats = utilities.r_text("Stats", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+stats = utilities.r_text("Stats", (255, 255, 255),
+                         "./Assets/Fonts/bitwise.ttf", 30)
 
 run = True
 s_stat = False
@@ -40,6 +40,7 @@ while run:
         screen.blit(stats, (500, 490))
 
         pygame.draw.line(screen, (255, 255, 255), (0, 400), (800, 400), 8)
+
 
         #  Hover
         if utilities.p_mouse(mouse, (200, 307), (461, 480)):

@@ -10,10 +10,6 @@ class Champion(Base):
         self.race = race
         self.gender = gender
         self.avatar = Avatar
-        """ self.level = 1
-        self.xpnextlvl = 0
-        self.xpcurrent = 0
-        self.xptotal = 0 """
 
         self.weapon = Equipment("Knife")
         self.Helmet = Equipment("Helmet")
@@ -24,19 +20,7 @@ class Champion(Base):
             self.Gauntlets.defense + self.Chest.defense + self.Leg.defense
 
         stats = super().load_json_file(race)
-        stats = stats[0]
-
-        for key, value in stats.items():
-            if key == "health":
-                self.health = value
-            elif key == "atkdamage":
-                self.atkdamage = value
-            elif key == "defense":
-                self.defense = value
-            elif key == "magic":
-                self.magic = value
-            elif key == "speed":
-                self.speed = value
+        super().load_character(stats)
 
     @ property
     def race(self):
@@ -76,6 +60,8 @@ class Champion(Base):
                "race": self.race,
                "gender": self.gender,
                "avatar": self.avatar,
+               "lvl": self.lvl,
+               "exp": self.exp,
                "weapon": {"name": self.weapon.name,
                           "damage": self.weapon.damage,
                           "defense": self.weapon.defense},

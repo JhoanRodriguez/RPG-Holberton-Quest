@@ -10,11 +10,8 @@ class Base:
         self.defense = 10
         self.magic = 10
         self.speed = 10
-
-        """ self.level = 1
-        self.xpnextlvl = 0
-        self.xpcurrent = 0
-        self.xptotal = 0 """
+        self.exp = 0
+        self.lvl = 1
 
     @property
     def name(self):
@@ -89,7 +86,7 @@ class Base:
         """
 
         print(cls.__dict__)
-        #filename = cls.__getattribute__('name') + '.json'
+        # filename = cls.__getattribute__('name') + '.json'
         newlist = []
         if list_objs is None:
             cls.to_json_string(list_objs)
@@ -119,3 +116,75 @@ class Base:
         except Exception:
             pass
         return newlist
+
+    def load_save_json_file(self, json_file):
+        newlist = {}
+        if json_file is not None:
+            filename = "./Database/Saves/" + json_file + ".json"
+        try:
+            with open(filename, "r") as Myfile:
+                newlist = json.load(Myfile)
+        except Exception:
+            pass
+        return newlist
+
+    def load_character(self, stats=[]):
+        stats = stats[0]
+
+        for key, value in stats.items():
+            if key == "health":
+                self.health = value
+            elif key == "atkdamage":
+                self.atkdamage = value
+            elif key == "defense":
+                self.defense = value
+            elif key == "magic":
+                self.magic = value
+            elif key == "speed":
+                self.speed = value
+            elif key == "weapon":
+                for index, val in value.items():
+                    if index == "name":
+                        self.weapon.name = val
+                    elif index == "damage":
+                        self.weapon.damage = val
+                    elif index == "defense":
+                        self.weapon.defense = val
+            elif key == "armor":
+                for index, val in value.items():
+                    if index == "Helmet":
+                        for idx, value in val.items():
+                            if idx == "name":
+                                self.Helmet.name = value
+                            elif idx == "damage":
+                                self.Helmet.damage = value
+                            elif idx == "defense":
+                                self.Helmet.defense = value
+                    elif index == "Gauntlets":
+                        for idx, value in val.items():
+                            if idx == "name":
+                                self.Gauntlets.name = value
+                            elif idx == "damage":
+                                self.Gauntlets.damage = value
+                            elif idx == "defense":
+                                self.Gauntlets.defense = value
+                    elif index == "Chest":
+                        for idx, value in val.items():
+                            if idx == "name":
+                                self.Chest.name = value
+                            elif idx == "damage":
+                                self.Chest.damage = value
+                            elif idx == "defense":
+                                self.Chest.defense = value
+                    elif index == "Leg":
+                        for idx, value in val.items():
+                            if idx == "name":
+                                self.Leg.name = value
+                            elif idx == "damage":
+                                self.Leg.damage = value
+                            elif idx == "defense":
+                                self.Leg.defense = value
+            elif key == "lvl":
+                self.lvl = value
+            elif key == "exp":
+                self.exp = value
