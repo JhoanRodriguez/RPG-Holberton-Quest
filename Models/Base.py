@@ -10,7 +10,7 @@ class Base:
         self.defense = 10
         self.magic = 10
         self.speed = 10
-        self.exp = 0
+        self.xp = 0
         self.lvl = 1
 
     @property
@@ -186,5 +186,5 @@ class Base:
                                 self.Leg.defense = value
             elif key == "lvl":
                 self.lvl = value
-            elif key == "exp":
-                self.exp = value
+            elif key == "xp":
+                self.xp = value

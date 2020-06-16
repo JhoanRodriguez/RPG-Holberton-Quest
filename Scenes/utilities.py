@@ -1,6 +1,5 @@
 import pygame
 import random
-import json
 
 
 def p_mouse(mouse_obj, pos_x=(0, 0), pos_y=(0, 0)):
@@ -35,6 +34,17 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
     return t_surface
 
 
+def EndBattle(player, monster):
+    stats = player.load_save_json_file(player.name)
+    for key, value in stats.items():
+        if key == "health":
+            player.health = value
+    print("You have being healed")
+    player.xp += monster.xp
+    print("{} just earned {} exp and now have {}.".format(
+        player.name, monster.xp, player.xp))
+
+
 def fight(player, monster, damagetype):
     if player.speed > monster.speed:
         # player attacks first
@@ -47,10 +57,7 @@ def fight(player, monster, damagetype):
                 "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
-                stats = player.load_save_json_file(player.name)
-                for key, value in stats.items():
-                    if key == "health":
-                        player.health = value
+                EndBattle(player, monster)
                 return
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
