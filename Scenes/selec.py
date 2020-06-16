@@ -165,7 +165,7 @@ while run:
     elif sub_scenes[2]:
         player = Champion(data["name"], data["race"],
                           data["gender"], data["avatar"])
-        player.weapon.damage = 1.0
+        player.weapon.damage = 1
         player.serialize()
         exec(open("Scenes/men_play.py").read())
         run = False

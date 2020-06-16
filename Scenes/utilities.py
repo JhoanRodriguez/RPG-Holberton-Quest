@@ -83,9 +83,9 @@ def fight(player, monster, damagetype):
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
-            damages[0] = damage
             if damage < 0:
                 damage = 0
+            damages[0] = damage
             live = monster.health - damage
             monster.health = live
             # print(
@@ -93,13 +93,13 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 WinBattle(player, monster)
-                return
+                return damages
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
-            damages[0] = damage
             if damage < 0:
                 damage = 0
+            damages[0] = damage
             live = monster.health - damage
             monster.health = live
             # print(
@@ -107,12 +107,12 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 WinBattle(player, monster)
-                return
+                return damages
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
-        damages[1] = damage
         if damage < 0:
             damage = 0
+        damages[1] = damage
         live = player.health - damage
         player.health = live
         # print(
@@ -120,15 +120,15 @@ def fight(player, monster, damagetype):
         if player.health <= 0:
             print("{} died".format(player.name))
             LoseBattle(player, monster)
-            return
+            return damages
     else:
         # Enemy attacks first
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
         damages[2] = "monster"
-        damage[1] = damage
         if damage < 0:
             damage = 0
+        damage[1] = damage
         live = player.health - damage
         player.health = live
         # print(
@@ -136,13 +136,13 @@ def fight(player, monster, damagetype):
         if player.health <= 0:
             print("{} died".format(player.name))
             LoseBattle(player, monster)
-            return
+            return damages
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
-            damages[0] = damage
             if damage < 0:
                 damage = 0
+            damages[0] = damage
             live = monster.health - damage
             monster.health = live
             # print(
@@ -150,13 +150,13 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 WinBattle(player, monster)
-                return
+                return damages
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
-            damages[0] = damage
             if damage < 0:
                 damage = 0
+            damages[0] = damage
             live = monster.health - damage
             monster.health = live
             # print(
@@ -164,4 +164,6 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 WinBattle(player, monster)
-                return
+                return damages
+
+    return (damages)
