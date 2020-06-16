@@ -4,6 +4,13 @@ back = utilities.n_render(back_fight, (800, 600))
 bat_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 200))
 avatar = utilities.n_render(player.avatar, (110, 100))
 
+lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
+new_enemy = Enemy("Enemy{}".format(lvl_enemy), "Assets/Enemies/Enemy{}.png".format(lvl_enemy))
+enemy_ = utilities.n_render(new_enemy.avatar, (300, 250))
+
+
+
+
 attack = utilities.r_text("Attack:", (0, 0, 0),
                           "./Assets/Fonts/bitwise.ttf", 30)
 phy = utilities.r_text("Physical", (255, 255, 255),
@@ -29,6 +36,8 @@ while run:
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
+
+        screen.blit(enemy_, (280, 130))
 
         screen.blit(attack, (150, 430))
         screen.blit(phy, (200, 455))
@@ -74,9 +83,9 @@ while run:
         if not s_stat:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (200, 307), (461, 480)):
-                    print("Hitted")
+                    utilities.fight(player, new_enemy, "atkdamage")
                 if utilities.p_mouse(mouse, (200, 300), (532, 550)):
-                    print("Magiced")
+                    utilities.fight(player, new_enemy, "magic")
                 if utilities.p_mouse(mouse, (500, 637), (468, 482)):
                     exec(open("Scenes/men_play.py").read())
                 if utilities.p_mouse(mouse, (500, 570), (493, 511)): 

@@ -44,7 +44,6 @@ while run:
             run = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if utilities.p_mouse(mouse, (309, 502), (195, 250)):
-                monster = Enemy("Enemy")
                 exec(open("Scenes/scene_fight.py").read())
             elif utilities.p_mouse(mouse, (309, 502), (293, 348)):
                 player.serialize()

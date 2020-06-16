@@ -4,9 +4,10 @@ from Models.Equipment import Equipment
 
 class Enemy(Base):
 
-    def __init__(self, name="Enemy"):
+    def __init__(self, name="Enemy", avatar=""):
         super().__init__(name)
 
+        self.avatar = avatar
         self.weapon = Equipment("Knife")
         self.Helmet = Equipment("Helmet")
         self.Gauntlets = Equipment("Gauntlets")

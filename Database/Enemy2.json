@@ -1,0 +1,37 @@
+[
+{
+    "health": 10,
+    "atkdamage": 3,
+    "defense": 2,
+    "magic": 3,
+    "speed": 5,
+    "exp": 100,
+    "weapon": {
+        "name": "Knife",
+        "damage": 3,
+        "defense": 0
+    },
+    "armor": {
+        "Helmet": {
+            "name": "Helmet",
+            "damage": 0,
+            "defense": 0
+        },
+        "Gauntlets": {
+            "name": "Gauntlets",
+            "damage": 0,
+            "defense": 0
+        },
+        "Chest": {
+            "name": "Chest",
+            "damage": 0,
+            "defense": 0
+        },
+        "Leg": {
+            "name": "Leg",
+            "damage": 0,
+            "defense": 0
+        }
+    }
+}
+]
