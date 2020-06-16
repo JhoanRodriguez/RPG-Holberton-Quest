@@ -41,17 +41,20 @@ stats = utilities.r_text("Stats", (255, 255, 255),
 
 life = player.health
 
-player_health = utilities.r_text("{:.2f}".format(life), (220, 20, 60),
+player_health = utilities.r_text("{:.2f}".format(life), (225, 225, 225),
                                  "./Assets/Fonts/bitwise.ttf", 30)
 run = True
 s_stat = False
 is_anim = False
 
+player_die = False
+monster_die = False
+
 while run:
 
     mouse = pygame.mouse.get_pos()
 
-    if not s_stat and not is_anim:
+    if not s_stat and not is_anim and not (player_die or monster_die):
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
@@ -109,7 +112,7 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-        if not s_stat and not is_anim:
+        if not s_stat and not is_anim and not (player_die or monster_die):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (200, 307), (461, 480)):
                     is_anim = True
@@ -128,9 +131,18 @@ while run:
                 if s_stat:
                     if utilities.p_mouse(mouse, (532, 638), (462, 490)):
                         s_stat = False
+                if monster_die or player_die:
+                    if utilities.p_mouse(mouse, c_x, c_y):
+                        exec(open("Scenes/men_play.py").read())
+                    if monster_die:
+                        if utilities.p_mouse(mouse, (183, 544), (291, 342)):
+                            exec(open("Scenes/scene_fight.py").read())
 
     pygame.display.update()
     pygame.display.flip()
+
+    if monster_die or player_die:
+        exec(open("Scenes/prompts.py").read())
 
     if not s_stat:
         pygame.mouse.set_cursor(*pygame.cursors.diamond)
