@@ -2,7 +2,7 @@
     {
         "health": 10,
         "atkdamage": 10,
-        "defense": 10,
+        "defense": 8,
         "magic": 10,
         "speed": 10
     }

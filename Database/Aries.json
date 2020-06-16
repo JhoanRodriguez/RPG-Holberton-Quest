@@ -5,11 +5,11 @@
         "defense": 6,
         "magic": 1,
         "speed": 4,
-        "exp": 100,
+        "xp": 100,
         "weapon":
         {
             "name": "Knife",
-            "damage": 0,
+            "damage": 4,
             "defense": 0
         },
         "armor":

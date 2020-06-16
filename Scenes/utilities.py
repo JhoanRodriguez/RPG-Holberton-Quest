@@ -46,24 +46,27 @@ def EndBattle(player, monster):
 
 
 def fight(player, monster, damagetype):
+    damages = [0.00, 0.00, "player"]
     if player.speed > monster.speed:
         # player attacks first
-        if damagetype == "atkdamage":
+        if damagetype == "atkdamage":        
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            damages[0] = damage
             if damage < 0:
                 damage = 0
             live = monster.health - damage
             monster.health = live
             print(
-                "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
+                "{} atk with physical damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 EndBattle(player, monster)
-                return
+                return damage
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            damages[0] = damage
             if damage < 0:
                 damage = 0
             live = monster.health - damage
@@ -76,9 +79,10 @@ def fight(player, monster, damagetype):
                 for key, value in stats.items():
                     if key == "health":
                         player.health = value
-                return
+                return damages
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
+        damages[1] = damage
         if damage < 0:
             damage = 0
         live = player.health - damage
@@ -87,11 +91,13 @@ def fight(player, monster, damagetype):
             "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             print("{} died".format(player.name))
-            return
+            return damages
     else:
         # Enemy attacks first
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
+        damages[2] = "monster"
+        damage[1] = damage
         if damage < 0:
             damage = 0
         live = player.health - damage
@@ -100,10 +106,11 @@ def fight(player, monster, damagetype):
             "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             print("{} died".format(player.name))
-            return
+            return damages
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            damages[0] = damage
             if damage < 0:
                 damage = 0
             live = monster.health - damage
@@ -116,10 +123,11 @@ def fight(player, monster, damagetype):
                 for key, value in stats.items():
                     if key == "health":
                         player.health = value
-                return
+                return damages
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            damages[0] = damage
             if damage < 0:
                 damage = 0
             live = monster.health - damage
@@ -132,4 +140,5 @@ def fight(player, monster, damagetype):
                 for key, value in stats.items():
                     if key == "health":
                         player.health = value
-                return
+            
+    return (damages)

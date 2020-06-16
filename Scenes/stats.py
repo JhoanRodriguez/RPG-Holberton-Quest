@@ -49,5 +49,6 @@ if s_stat:
     screen.blit(magic_, (300, 250))
     screen.blit(defense_, (300, 280))
     screen.blit(armor_, ((300, 310)))
+    screen.blit(weapon, (200, 320))
     screen.blit(weapon_, (300, 340))
     screen.blit(w_dmg, (315, 368))

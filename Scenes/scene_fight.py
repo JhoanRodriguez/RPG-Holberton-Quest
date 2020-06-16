@@ -4,10 +4,15 @@ back = utilities.n_render(back_fight, (800, 600))
 bat_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 200))
 avatar = utilities.n_render(player.avatar, (110, 100))
 
+monster_name = ('Aries', 'Anaconda', 'Mosquito',
+                'MetalKnight', 'DwarfDrill', 'SpiderWoman')
+
 lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
-monster = Enemy("Enemy{}".format(lvl_enemy),
-                "Assets/Enemies/Enemy{}.png".format(lvl_enemy))
+monster = Enemy("{}".format(monster_name[lvl_enemy]),
+                "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
 enemy_ = utilities.n_render(monster.avatar, (300, 250))
+
+weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
 
 
 attack = utilities.r_text("Attack:", (0, 0, 0),
@@ -26,12 +31,13 @@ stats = utilities.r_text("Stats", (255, 255, 255),
 
 run = True
 s_stat = False
+is_anim = False
 
 while run:
 
     mouse = pygame.mouse.get_pos()
 
-    if not s_stat:
+    if not s_stat and not is_anim:
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
@@ -87,10 +93,14 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-        if not s_stat:
+        if not s_stat and not is_anim:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (200, 307), (461, 480)):
-                    utilities.fight(player, monster, "atkdamage")
+                    is_anim = True
+                    damages = utilities.fight(player, monster, "atkdamage")
+                    phy = utilities.r_text(
+                        "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+                    exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (200, 300), (532, 550)):
                     utilities.fight(player, monster, "magic")
                 if utilities.p_mouse(mouse, (500, 637), (468, 482)):
@@ -99,8 +109,9 @@ while run:
                     s_stat = True
         else:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if utilities.p_mouse(mouse, (532, 638), (462, 490)):
-                    s_stat = False
+                if s_stat:
+                    if utilities.p_mouse(mouse, (532, 638), (462, 490)):
+                        s_stat = False
 
     pygame.display.update()
     pygame.display.flip()

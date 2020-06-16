@@ -54,14 +54,14 @@ while run:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if sub_scenes[0]:
                 if (utilities.p_mouse(mouse, (174, 270), (160, 455)) and
-                        (text != 'Name')):
+                        (text != 'Name') and len(text) > 0):
 
                     data.update({"gender": "Male"})
                     data.update({"name": text})
                     sub_scenes[0] = False
                     sub_scenes[1] = True
                 elif (utilities.p_mouse(mouse, (525, 611), (180, 450)) and
-                      (text != 'Name')):
+                      (text != 'Name') and len(text) > 0):
 
                     data.update({"gender": "Female"})
                     data.update({"name": text})
@@ -165,6 +165,7 @@ while run:
     elif sub_scenes[2]:
         player = Champion(data["name"], data["race"],
                           data["gender"], data["avatar"])
+        player.weapon.damage = 1.0
         player.serialize()
         exec(open("Scenes/men_play.py").read())
         run = False
