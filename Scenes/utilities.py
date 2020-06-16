@@ -51,6 +51,8 @@ def fight(player, monster, damagetype):
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            if damage < 0:
+                damage = 0
             live = monster.health - damage
             monster.health = live
             print(
@@ -62,6 +64,8 @@ def fight(player, monster, damagetype):
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            if damage < 0:
+                damage = 0
             live = monster.health - damage
             monster.health = live
             print(
@@ -75,6 +79,8 @@ def fight(player, monster, damagetype):
                 return
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
+        if damage < 0:
+            damage = 0
         live = player.health - damage
         player.health = live
         print(
@@ -86,6 +92,8 @@ def fight(player, monster, damagetype):
         # Enemy attacks first
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
+        if damage < 0:
+            damage = 0
         live = player.health - damage
         player.health = live
         print(
@@ -96,6 +104,8 @@ def fight(player, monster, damagetype):
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            if damage < 0:
+                damage = 0
             live = monster.health - damage
             monster.health = live
             print(
@@ -110,6 +120,8 @@ def fight(player, monster, damagetype):
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
+            if damage < 0:
+                damage = 0
             live = monster.health - damage
             monster.health = live
             print(
