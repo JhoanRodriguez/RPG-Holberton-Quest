@@ -6,34 +6,28 @@
         "magic": 1,
         "speed": 4,
         "xp": 100,
-        "weapon":
-        {
+        "weapon": {
             "name": "Knife",
             "damage": 3,
             "defense": 0
         },
-        "armor":
-        {
-            "Helmet":
-            {
+        "armor": {
+            "Helmet": {
                 "name": "Helmet",
                 "damage": 0,
                 "defense": 0
             },
-            "Gauntlets":
-            {
+            "Gauntlets": {
                 "name": "Gauntlets",
                 "damage": 0,
                 "defense": 0
             },
-            "Chest":
-            {
+            "Chest": {
                 "name": "Chest",
                 "damage": 0,
                 "defense": 0
             },
-            "Leg":
-            {
+            "Leg": {
                 "name": "Leg",
                 "damage": 0,
                 "defense": 0
