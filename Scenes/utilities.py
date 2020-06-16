@@ -57,8 +57,8 @@ def fight(player, monster, damagetype):
                 damage = 0
             live = monster.health - damage
             monster.health = live
-            print(
-                "{} atk with physical damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
+            #print(
+            #    "{} atk with physical damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 EndBattle(player, monster)
@@ -71,8 +71,8 @@ def fight(player, monster, damagetype):
                 damage = 0
             live = monster.health - damage
             monster.health = live
-            print(
-                "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
+            #print(
+            #    "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 stats = player.load_save_json_file(player.name)
@@ -87,8 +87,8 @@ def fight(player, monster, damagetype):
             damage = 0
         live = player.health - damage
         player.health = live
-        print(
-            "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
+        #print(
+        #    "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             print("{} died".format(player.name))
             return damages
@@ -102,8 +102,8 @@ def fight(player, monster, damagetype):
             damage = 0
         live = player.health - damage
         player.health = live
-        print(
-            "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
+        #print(
+        #    "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(monster.name, damage, player.name, player.health))
         if player.health <= 0:
             print("{} died".format(player.name))
             return damages
@@ -115,8 +115,8 @@ def fight(player, monster, damagetype):
                 damage = 0
             live = monster.health - damage
             monster.health = live
-            print(
-                "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
+            #print(
+            #    "{} atk with physical  damage and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 stats = player.load_save_json_file(player.name)
@@ -132,8 +132,8 @@ def fight(player, monster, damagetype):
                 damage = 0
             live = monster.health - damage
             monster.health = live
-            print(
-                "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
+            #print(
+            #    "{} atk with magic and deals {:.2f} to the {}, now he have {:.2f} of HP left".format(player.name, damage, monster.name, monster.health))
             if monster.health <= 0:
                 print("{} died".format(monster.name))
                 stats = player.load_save_json_file(player.name)

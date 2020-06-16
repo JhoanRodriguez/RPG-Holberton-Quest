@@ -12,6 +12,16 @@ monster = Enemy("{}".format(monster_name[lvl_enemy]),
                 "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
 enemy_ = utilities.n_render(monster.avatar, (300, 250))
 
+# Enemies = ('Aries',
+#            'Anaconda',
+#            'Mosquito',
+#            'Metal Knight',
+#            'Dwarf Drill',
+#            'Spider Woman')
+# show_name = utilities.r_text(Enemies[lvl_enemy], (255, 255, 255),
+#                         "./Assets/Fonts/bitwise.ttf", 30)
+
+
 weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
 
 
@@ -29,6 +39,10 @@ surrender = utilities.r_text(
 stats = utilities.r_text("Stats", (255, 255, 255),
                          "./Assets/Fonts/bitwise.ttf", 30)
 
+life = player.health
+
+player_health = utilities.r_text("{:.2f}".format(life), (220, 20, 60),
+                                 "./Assets/Fonts/bitwise.ttf", 30)
 run = True
 s_stat = False
 is_anim = False
@@ -41,6 +55,7 @@ while run:
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
+        screen.blit(player_health, (7, 530))
 
         screen.blit(enemy_, (280, 130))
 
@@ -85,10 +100,11 @@ while run:
                 "Stats", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
 
     else:
-        stats = utilities.r_text(
-            "Stats", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
-        screen.blit(stats, (500, 490))
-        exec(open("Scenes/stats.py").read())
+        if s_stat:
+            stats = utilities.r_text(
+                "Stats", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+            screen.blit(stats, (500, 490))
+            exec(open("Scenes/stats.py").read())
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -99,7 +115,7 @@ while run:
                     is_anim = True
                     damages = utilities.fight(player, monster, "atkdamage")
                     phy = utilities.r_text(
-                        "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+                            "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
                     exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (200, 300), (532, 550)):
                     utilities.fight(player, monster, "magic")
