@@ -5,9 +5,9 @@ bat_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 200))
 avatar = utilities.n_render(player.avatar, (110, 100))
 
 lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
-new_enemy = Enemy("Enemy{}".format(lvl_enemy),
-                  "Assets/Enemies/Enemy{}.png".format(lvl_enemy))
-enemy_ = utilities.n_render(new_enemy.avatar, (300, 250))
+monster = Enemy("Enemy{}".format(lvl_enemy),
+                "Assets/Enemies/Enemy{}.png".format(lvl_enemy))
+enemy_ = utilities.n_render(monster.avatar, (300, 250))
 
 
 attack = utilities.r_text("Attack:", (0, 0, 0),
