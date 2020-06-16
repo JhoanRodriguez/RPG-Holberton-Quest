@@ -42,7 +42,7 @@ def lvlup(player):
         with open(filename, "r") as Myfile:
             tablexp = json.load(Myfile)
     except Exception:
-        raise FileExistsError("Experience.json was not found")
+        raise FileExistsError("{} was not found".format(filename))
     tablexp = tablexp[0]
     for key, value in tablexp.items():
         if key == str(player.lvl):

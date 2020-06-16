@@ -114,7 +114,7 @@ class Base:
             with open(filename, "r") as Myfile:
                 newlist = json.load(Myfile)
         except Exception:
-            pass
+            raise FileExistsError("{} was not found".format(filename))
         return newlist
 
     def load_save_json_file(self, json_file):
@@ -125,7 +125,7 @@ class Base:
             with open(filename, "r") as Myfile:
                 newlist = json.load(Myfile)
         except Exception:
-            pass
+            raise FileExistsError("{} was not found".format(filename))
         return newlist
 
     def load_character(self, stats=[]):
