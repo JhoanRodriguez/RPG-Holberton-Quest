@@ -9,8 +9,6 @@ new_enemy = Enemy("Enemy{}".format(lvl_enemy), "Assets/Enemies/Enemy{}.png".form
 enemy_ = utilities.n_render(new_enemy.avatar, (300, 250))
 
 
-
-
 attack = utilities.r_text("Attack:", (0, 0, 0),
                           "./Assets/Fonts/bitwise.ttf", 30)
 phy = utilities.r_text("Physical", (255, 255, 255),

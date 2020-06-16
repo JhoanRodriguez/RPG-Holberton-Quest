@@ -1,7 +1,7 @@
 [
     {
-        "health": 20,
-        "atkdamage": 5,
+        "health": 14,
+        "atkdamage": 10,
         "defense": 6,
         "magic": 1,
         "speed": 4,
