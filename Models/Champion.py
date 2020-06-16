@@ -61,7 +61,7 @@ class Champion(Base):
                "gender": self.gender,
                "avatar": self.avatar,
                "lvl": self.lvl,
-               "exp": self.exp,
+               "xp": self.xp,
                "weapon": {"name": self.weapon.name,
                           "damage": self.weapon.damage,
                           "defense": self.weapon.defense},
