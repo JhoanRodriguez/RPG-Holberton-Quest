@@ -34,9 +34,9 @@ m_prompt = utilities.r_text(message, (255, 255, 255),
 
 # Experience
 
-        #if value <= player.xp:
-        #    player.lvl += 1
-        #    player.xp -= value
+# if value <= player.xp:
+#    player.lvl += 1
+#    player.xp -= value
 
 if not exp_updated:
     if monster_die:
@@ -56,16 +56,16 @@ if not exp_updated:
                     max_exp = value
 
             if player.xp == max_exp:
-                print(player.xp)
                 player.lvl += 1
                 player.p_skills += 3
 
             m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
-                                    "./Assets/Fonts/bitwise.ttf", 40)
+                                     "./Assets/Fonts/bitwise.ttf", 40)
 
             pygame.draw.rect(screen, (255, 165, 0), (100, 50, 500, 400), 0)
 
-            screen.blit(m_prompt, (160, 50) if message == "You've died" else (210, 50))
+            screen.blit(m_prompt, (160, 50) if message ==
+                        "You've died" else (210, 50))
             screen.blit(m_menu, (wh))
             screen.blit(m_fight, (180, 280))
 
@@ -90,7 +90,7 @@ if not exp_updated:
                         max_exp = value
                 player.xp = 0
                 m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
-                                    "./Assets/Fonts/bitwise.ttf", 40)
+                                         "./Assets/Fonts/bitwise.ttf", 40)
                 break
     elif player_die:
         if player.xp > 0:
@@ -100,11 +100,12 @@ if not exp_updated:
                     player.xp = 0
 
                 m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
-                                    "./Assets/Fonts/bitwise.ttf", 40)
+                                         "./Assets/Fonts/bitwise.ttf", 40)
 
                 pygame.draw.rect(screen, (255, 165, 0), (100, 50, 500, 400), 0)
 
-                screen.blit(m_prompt, (160, 50) if message == "You've died" else (210, 50))
+                screen.blit(m_prompt, (160, 50) if message ==
+                            "You've died" else (210, 50))
                 screen.blit(m_menu, (wh))
                 screen.blit(m_fight, (180, 280))
 
@@ -114,7 +115,7 @@ if not exp_updated:
                 pygame.display.flip()
 
                 player.xp -= 1
-    
+
     exp_updated = True
 
 
@@ -131,15 +132,15 @@ try:
     with open(filename, "r") as Myfile:
         tablexp = json.load(Myfile)
 except Exception:
-        raise FileExistsError("{} was not found".format(filename))
+    raise FileExistsError("{} was not found".format(filename))
 tablexp = tablexp[0]
 for key, value in tablexp.items():
     if key == str(player.lvl):
-            max_exp = value
-                
+        max_exp = value
+
 
 m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
-                        "./Assets/Fonts/bitwise.ttf", 40)
+                         "./Assets/Fonts/bitwise.ttf", 40)
 
 
 screen.blit(m_lvl, (140, 130))
