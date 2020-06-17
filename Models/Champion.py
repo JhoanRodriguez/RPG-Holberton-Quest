@@ -11,6 +11,8 @@ class Champion(Base):
         self.gender = gender
         self.avatar = Avatar
 
+        self.p_skills = 0
+
         self.weapon = Equipment("Knife")
         self.Helmet = Equipment("Helmet")
         self.Gauntlets = Equipment("Gauntlets")
@@ -53,6 +55,7 @@ class Champion(Base):
 
         dic = {"name": self.name,
                "health": self.health,
+               "p_skills": self.p_skills,
                "atkdamage": self.atkdamage,
                "defense": self.defense,
                "magic": self.magic,

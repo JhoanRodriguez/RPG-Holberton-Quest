@@ -58,7 +58,7 @@ if not exp_updated:
             if player.xp == max_exp:
                 print(player.xp)
                 player.lvl += 1
-                #monster.xp = 0
+                player.p_skills += 3
 
             m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
                                     "./Assets/Fonts/bitwise.ttf", 40)
