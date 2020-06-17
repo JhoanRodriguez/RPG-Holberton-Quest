@@ -3,6 +3,7 @@ import json
 if monster_die == True:
     experience = ["{}".format(player.lvl), "{}".format(player.xp)]
     message = "You win!"
+    dropped = damages[4]
     wh = (255, 350)
     c_x = (258, 423)
     c_y = (357, 403)
@@ -51,7 +52,7 @@ if not exp_updated:
 
             if player.xp == max_exp:
                 player.lvl += 1
-                player.p_skills += 3
+                player.p_skills += 1
 
             m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
                                      "./Assets/Fonts/bitwise.ttf", 40)
@@ -136,5 +137,10 @@ for key, value in tablexp.items():
 m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
                          "./Assets/Fonts/bitwise.ttf", 40)
 
-
 screen.blit(m_lvl, (140, 130))
+
+if monster_die:
+    print(dropped)
+    drop = utilities.r_text(dropped, (255, 255, 255),
+                             "./Assets/Fonts/bitwise.ttf", 23)
+    screen.blit(drop, (105, 180))

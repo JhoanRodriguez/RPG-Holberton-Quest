@@ -53,29 +53,30 @@ def drop(player):
 
         if namedrop == player.Helmet.name:
             player.Helmet.defense += defensedrop
-            print(
-                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+            return (
+                "You've dropped a {} with {} of defense!".format(namedrop, defensedrop))
         elif namedrop == player.Gauntlets.name:
             player.Gauntlets.defense += defensedrop
-            print(
-                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+            return (
+                "You've dropped a {} with {} of defense!".format(namedrop, defensedrop))
         elif namedrop == player.Chest.name:
             player.Chest.defense += defensedrop
-            print(
-                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+            return (
+                "You've dropped a {} with {} of defense!".format(namedrop, defensedrop))
         elif namedrop == player.Leg.name:
             player.Leg.defense += defensedrop
-            print(
-                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+            return (
+                "You've dropped a {} with {} of defense!".format(namedrop, defensedrop))
         else:
             player.weapon.name = namedrop
             player.weapon.damage += damagedrop
-            print(
-                "You dropped a {} with {} of damage, It is equipped now!.".format(namedrop, damagedrop))
+            return (
+                "You've dropped a {} with {} of damage\n\t\tIt is equipped now!.".format(namedrop, damagedrop))
 
+    return ("")
 
 def fight(player, monster, damagetype):
-    attributes = [0.00, 0.00, "player", 0.00]
+    attributes = [0.00, 0.00, "player", 0.00, "drop"]
     life = player.health
     if player.speed > monster.speed:
         # player attacks first
@@ -91,7 +92,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
-                drop(player)
+                attributes[4] = drop(player)
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -104,7 +105,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
-                drop(player)
+                attributes[4] = drop(player)
                 return attributes
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
@@ -143,7 +144,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
-                drop(player)
+                attributes[4] = drop(player)
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -156,7 +157,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
-                drop(player)
+                attributes[4] = drop(player)
                 return attributes
 
     return (attributes)
