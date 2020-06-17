@@ -39,6 +39,9 @@ pygame.mouse.set_cursor(*pygame.cursors.arrow)
 
 run = True
 
+player_die = False
+monster_die = False
+
 while run:
     mouse = pygame.mouse.get_pos()
 

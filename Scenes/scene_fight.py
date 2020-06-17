@@ -7,10 +7,11 @@ avatar = utilities.n_render(player.avatar, (110, 100))
 monster_name = ('Aries', 'Anaconda', 'Mosquito',
                 'MetalKnight', 'DwarfDrill', 'SpiderWoman')
 
-lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
-monster = Enemy("{}".format(monster_name[lvl_enemy]),
-                "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
-enemy_ = utilities.n_render(monster.avatar, (300, 250))
+if not player_die or not monster_die:
+    lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
+    monster = Enemy("{}".format(monster_name[lvl_enemy]),
+                    "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
+    enemy_ = utilities.n_render(monster.avatar, (300, 250))
 
 # Enemies = ('Aries',
 #            'Anaconda',
@@ -47,8 +48,7 @@ run = True
 s_stat = False
 is_anim = False
 
-player_die = False
-monster_die = False
+exp_updated = False
 
 while run:
 
@@ -133,9 +133,13 @@ while run:
                         s_stat = False
                 if monster_die or player_die:
                     if utilities.p_mouse(mouse, c_x, c_y):
+                        player_die = False
+                        monster_die = False
                         exec(open("Scenes/men_play.py").read())
                     if monster_die:
                         if utilities.p_mouse(mouse, (183, 544), (291, 342)):
+                            player_die = False
+                            monster_die = False
                             exec(open("Scenes/scene_fight.py").read())
 
     pygame.display.update()
