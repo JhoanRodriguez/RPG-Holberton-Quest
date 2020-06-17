@@ -4,6 +4,8 @@ back = utilities.n_render(back_fight, (800, 600))
 bat_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 200))
 avatar = utilities.n_render(player.avatar, (110, 100))
 
+enemy_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 60))
+
 monster_name = ('Aries', 'Anaconda', 'Mosquito',
                 'MetalKnight', 'DwarfDrill', 'SpiderWoman')
 
@@ -13,15 +15,19 @@ if not player_die or not monster_die:
                     "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
     enemy_ = utilities.n_render(monster.avatar, (300, 250))
 
-# Enemies = ('Aries',
-#            'Anaconda',
-#            'Mosquito',
-#            'Metal Knight',
-#            'Dwarf Drill',
-#            'Spider Woman')
-# show_name = utilities.r_text(Enemies[lvl_enemy], (255, 255, 255),
-#                         "./Assets/Fonts/bitwise.ttf", 30)
+Enemies = ('Aries',
+            'Conda',
+            'Mosquito',
+            'Metal Knight',
+            'Dwarf Drill',
+            'Spider Woman')
 
+mon_heal = monster.health
+
+show_name = utilities.r_text(Enemies[lvl_enemy], (240,230,140),
+                        "./Assets/Fonts/bitwise.ttf", 52)
+show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240,230,140),
+                        "./Assets/Fonts/bitwise.ttf", 52)
 
 weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
 
@@ -60,6 +66,13 @@ while run:
         screen.blit(avatar, (5, 420))
         screen.blit(player_health, (7, 530))
 
+        show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240,230,140),
+                            "./Assets/Fonts/bitwise.ttf", 52)
+
+        screen.blit(enemy_bg, (0, 0))
+        pygame.draw.line(screen, (255, 255, 255), (0, 55), (800, 55), 8)
+        screen.blit(show_name, (20, 5))
+        screen.blit(show_health_en, (300, 5))
         screen.blit(enemy_, (280, 130))
 
         screen.blit(attack, (150, 430))
