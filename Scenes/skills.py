@@ -74,19 +74,19 @@ class Button:
 
 
 add_health = Button("health", "+", (370, 165))
-less_health = Button("health", "-", (440, 165), add_health)
+#less_health = Button("health", "-", (440, 165), add_health)
 
 add_defense = Button("defense", "+", (370, 245))
-less_defense = Button("defense", "-", (440, 245), add_defense)
+#less_defense = Button("defense", "-", (440, 245), add_defense)
 
 add_damage = Button("damage", "+", (370, 325))
-less_damage = Button("damage", "-", (440, 325), add_damage)
+#less_damage = Button("damage", "-", (440, 325), add_damage)
 
 add_magic = Button("magic", "+", (370, 405))
-less_magic = Button("magic", "-", (440, 405), add_magic)
+#less_magic = Button("magic", "-", (440, 405), add_magic)
 
 add_speed = Button("speed", "+", (370, 485))
-less_speed = Button("speed", "-", (440, 485), add_speed)
+#less_speed = Button("speed", "-", (440, 485), add_speed)
 
 get_back = utilities.r_text("BACK", ((25, 25, 112)),
                             "./Assets/Fonts/bitwise.ttf", 60)
@@ -123,23 +123,23 @@ while skilling:
 
     screen.blit(st_health, (30, 150))
     add_health.button_ins()
-    less_health.button_ins()
+    #less_health.button_ins()
 
     screen.blit(st_defense, (30, 230))
     add_defense.button_ins()
-    less_defense.button_ins()
+    #less_defense.button_ins()
 
     screen.blit(st_damage, (30, 310))
     add_damage.button_ins()
-    less_damage.button_ins()
+    #less_damage.button_ins()
 
     screen.blit(st_magic, (30, 390))
     add_magic.button_ins()
-    less_magic.button_ins()
+    #less_magic.button_ins()
 
     screen.blit(st_speed, (30, 470))
     add_speed.button_ins()
-    less_speed.button_ins()
+    #less_speed.button_ins()
 
     screen.blit(get_back, (620, 545))
 
@@ -202,23 +202,23 @@ while skilling:
 
             # Buttons Actions
             add_health.button_action()
-            if confirm:
-                less_health.button_action()
+            #if confirm:
+            #    less_health.button_action()
 
             add_defense.button_action()
-            if confirm:
-                less_defense.button_action()
+            #if confirm:
+            #    less_defense.button_action()
 
             add_damage.button_action()
-            if confirm:
-                less_damage.button_action()
+            #if confirm:
+            #    less_damage.button_action()
 
             add_magic.button_action()
-            if confirm:
-                less_magic.button_action()
+            #if confirm:
+            #    less_magic.button_action()
 
             add_speed.button_action()
-            if confirm:
-                less_speed.button_action()
+            #if confirm:
+            #    less_speed.button_action()
 
     pygame.display.update()

@@ -244,7 +244,6 @@ while life >= damaged:
 player_health = utilities.r_text("{:.2f}".format(life), (225, 225, 225),
                                 "./Assets/Fonts/bitwise.ttf", 30)
 
-sleep(0.3)
 
 if life <= 0:
     player_die = True

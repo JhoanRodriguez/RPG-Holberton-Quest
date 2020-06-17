@@ -29,9 +29,6 @@ show_name = utilities.r_text(Enemies[lvl_enemy], (240,230,140),
 show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240,230,140),
                         "./Assets/Fonts/bitwise.ttf", 52)
 
-weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
-
-
 attack = utilities.r_text("Attack:", (0, 0, 0),
                           "./Assets/Fonts/bitwise.ttf", 30)
 phy = utilities.r_text("Physical", (255, 255, 255),
@@ -134,9 +131,14 @@ while run:
                     damages = utilities.fight(player, monster, "atkdamage")
                     phy = utilities.r_text(
                             "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+                    weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
                     exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (200, 300), (532, 550)):
-                    utilities.fight(player, monster, "magic")
+                    damages = utilities.fight(player, monster, "magic")
+                    chol = utilities.r_text("Cholera", (255, 255, 255),
+                        "./Assets/Fonts/bitwise.ttf", 30)
+                    weapon = utilities.n_render("Assets/Weapons/cholera.png", (100, 100))    
+                    exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (500, 637), (468, 482)):
                     exec(open("Scenes/men_play.py").read())
                 if utilities.p_mouse(mouse, (500, 570), (493, 511)):

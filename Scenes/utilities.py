@@ -33,9 +33,7 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
 
 
 def drop(player):
-    print("drop")
     if random.randrange(1, 100) < 10:
-        print("Entroi al drop")
         Randomitem = random.randrange(0, 5)
         tabledrop = {}
         filename = "./Database/Drops.json"
@@ -106,6 +104,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
+                drop(player)
                 return attributes
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
@@ -144,6 +143,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
+                drop(player)
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -156,6 +156,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
+                drop(player)
                 return attributes
 
     return (attributes)
