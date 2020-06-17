@@ -46,6 +46,8 @@ surrender = utilities.r_text(
 stats = utilities.r_text("Stats", (255, 255, 255),
                          "./Assets/Fonts/bitwise.ttf", 30)
 
+prev_health = player.health
+
 life = player.health
 
 player_health = utilities.r_text("{:.2f}".format(life), (225, 225, 225),
@@ -148,11 +150,13 @@ while run:
                     if utilities.p_mouse(mouse, c_x, c_y):
                         player_die = False
                         monster_die = False
+                        player.health = prev_health
                         exec(open("Scenes/men_play.py").read())
                     if monster_die:
                         if utilities.p_mouse(mouse, (183, 544), (291, 342)):
                             player_die = False
                             monster_die = False
+                            player.health = prev_health
                             exec(open("Scenes/scene_fight.py").read())
 
     pygame.display.update()

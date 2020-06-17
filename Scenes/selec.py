@@ -167,6 +167,11 @@ while run:
                           data["gender"], data["avatar"])
         player.weapon.damage = 1
         player.serialize()
+        h_pointed = 0
+        d_pointed = 0
+        da_pointed = 0
+        ma_pointed = 0
+        sp_pointed = 0
         exec(open("Scenes/men_play.py").read())
         run = False
 

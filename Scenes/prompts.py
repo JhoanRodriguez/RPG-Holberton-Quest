@@ -32,12 +32,15 @@ else:
 m_prompt = utilities.r_text(message, (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 72)
 
+<<<<<<< HEAD
 # Experience
 
 # if value <= player.xp:
 #    player.lvl += 1
 #    player.xp -= value
 
+=======
+>>>>>>> 20323fb5869950217797b60e8b09cc4f97c3a55d
 if not exp_updated:
     if monster_die:
         monster.xp += player.xp
