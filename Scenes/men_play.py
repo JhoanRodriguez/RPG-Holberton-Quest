@@ -1,4 +1,5 @@
 from time import sleep
+import json
 
 back_play = utilities.n_render("./Assets/Images/back_play.jpg", (800, 600))
 
@@ -13,12 +14,9 @@ save = utilities.r_text("Save", (25, 25, 112),
 exit = utilities.r_text("Exit", (25, 25, 112),
                         "./Assets/Fonts/bitwise.ttf", 60)
 
-# PLAYER STATS
+confirm = True
 
-life_t = {'Human': 10,
-          'Orc': 9,
-          'Dwarf': 9,
-          'Elf': 9}
+# PLAYER STATS
 
 icon = utilities.n_render(player.avatar, (110, 100))
 
@@ -37,6 +35,46 @@ monster_die = False
 
 skilling = False
 
+attribs = {}
+        
+filename = "./Database/Saves/" + player.name + ".json"
+try:
+    with open(filename, "r") as Myfile:
+            attribs = json.load(Myfile)
+except Exception:
+    raise FileExistsError("{} was not found".format(filename))
+
+for a, b in attribs.items():
+    if a == "health":
+        if player.health > b:
+            skilled = True
+            break
+    elif a == "defense":
+        if player.defense > b:
+            skilled = True
+            break
+    elif a == "atkdamage":
+        if player.atkdamage > b:
+            skilled = True
+            break
+    elif a == "magic":
+        if player.magic > b:
+            skilled = True
+            break
+    elif a == "speed":
+        if player.speed > b:
+            skilled = True
+            break
+else:
+    skilled = False
+"""
+if not skilled:
+    h_pointed = 0
+    d_pointed = 0
+    da_pointed = 0
+    ma_pointed = 0
+    sp_pointed = 0
+"""
 while run:
     mouse = pygame.mouse.get_pos()
 

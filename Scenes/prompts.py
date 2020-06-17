@@ -32,12 +32,6 @@ else:
 m_prompt = utilities.r_text(message, (255, 255, 255),
                             "./Assets/Fonts/bitwise.ttf", 72)
 
-# Experience
-
-        #if value <= player.xp:
-        #    player.lvl += 1
-        #    player.xp -= value
-
 if not exp_updated:
     if monster_die:
         monster.xp += player.xp
@@ -56,7 +50,6 @@ if not exp_updated:
                     max_exp = value
 
             if player.xp == max_exp:
-                print(player.xp)
                 player.lvl += 1
                 player.p_skills += 3
 

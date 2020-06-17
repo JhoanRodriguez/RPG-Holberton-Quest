@@ -27,59 +27,17 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
     '''
 
     f = pygame.font.Font(font, size)
-
-    # f = pygame.font.SysFont(font, size)
-
     t_surface = f.render(text, False, color)
 
     return t_surface
 
 
-#def lvlup(player):
-#    tablexp = {}
-#    filename = "./Database/Experience.json"
-#    try:
-#        with open(filename, "r") as Myfile:
-#            tablexp = json.load(Myfile)
-#    except Exception:
-#        raise FileExistsError("{} was not found".format(filename))
-#    tablexp = tablexp[0]
-#    for key, value in tablexp.items():
-#        if key == str(player.lvl):
-#            if value <= player.xp:
-#                player.lvl += 1
-#                player.xp -= value
-#                print("{} just lvl Up to {} and have {} exp".format(
-#                    player.name, player.lvl, player.xp))
-
-
-def WinBattle(player, monster):
-    stats = player.load_save_json_file(player.name)
-    for key, value in stats.items():
-        if key == "health":
-            player.health = value
-    #print("You have being healed")
-    #player.xp += monster.xp
-    #print("{} just earned {} exp and now have {}.".format(
-    #    player.name, monster.xp, player.xp))
-#   lvlup(player)
-
-
-def LoseBattle(player, monster):
-    stats = player.load_save_json_file(player.name)
-    for key, value in stats.items():
-        if key == "health":
-            player.health = value
-    #print("You have being Revived")
-    #player.xp = player.xp / 2
-    #print("{} lose exp and now have {}.".format(
-    #    player.name, player.xp))
-
-
 def fight(player, monster, damagetype):
-    attributes = [0.00, 0.00, "player"]
+    attributes = [0.00, 0.00, "player", 0.00]
+    life = player.health
     if player.speed > monster.speed:
         # player attacks first
+
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
                       (random.randrange(1, 100)/100)) - (monster.defense + (monster.armor * random.randrange(1, 100)/100))
@@ -89,7 +47,8 @@ def fight(player, monster, damagetype):
             live = monster.health - damage
             monster.health = live
             if monster.health <= 0:
-                WinBattle(player, monster)
+                player.health = life
+                attributes[3] = player.health
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -100,7 +59,8 @@ def fight(player, monster, damagetype):
             live = monster.health - damage
             monster.health = live
             if monster.health <= 0:
-                WinBattle(player, monster)
+                player.health = life
+                attributes[3] = player.health
                 return attributes
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
@@ -110,10 +70,12 @@ def fight(player, monster, damagetype):
         live = player.health - damage
         player.health = live
         if player.health <= 0:
-            LoseBattle(player, monster)
+            player.health = life
+            attributes[3] = player.health
             return attributes
     else:
         # Enemy attacks first
+
         damage = (monster.atkdamage + monster.weapon.damage *
                   (random.randrange(1, 100)/100)) - (player.defense + (player.armor * random.randrange(1, 100)/100))
         attributes[2] = "monster"
@@ -123,7 +85,8 @@ def fight(player, monster, damagetype):
         live = player.health - damage
         player.health = live
         if player.health <= 0:
-            LoseBattle(player, monster)
+            player.health = life
+            attributes[3] = player.health
             return attributes
         if damagetype == "atkdamage":
             damage = (player.atkdamage + player.weapon.damage *
@@ -134,7 +97,8 @@ def fight(player, monster, damagetype):
             live = monster.health - damage
             monster.health = live
             if monster.health <= 0:
-                WinBattle(player, monster)
+                player.health = life
+                attributes[3] = player.health
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
@@ -145,7 +109,8 @@ def fight(player, monster, damagetype):
             live = monster.health - damage
             monster.health = live
             if monster.health <= 0:
-                WinBattle(player, monster)
+                player.health = life
+                attributes[3] = player.health
                 return attributes
 
     return (attributes)
