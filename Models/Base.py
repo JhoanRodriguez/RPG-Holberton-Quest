@@ -5,11 +5,11 @@ class Base:
 
     def __init__(self, name="name"):
         self.name = name
-        self.health = 10
-        self.atkdamage = 10
-        self.defense = 10
-        self.magic = 10
-        self.speed = 10
+        self.health = 5
+        self.atkdamage = 5
+        self.defense = 5
+        self.magic = 5
+        self.speed = 5
         self.xp = 0
         self.lvl = 1
 
