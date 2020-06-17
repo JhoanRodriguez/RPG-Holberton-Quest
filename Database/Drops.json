@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Helmet",
+        "damage": 0,
+        "defense": 1
+    },
+    {
+        "name": "Chest",
+        "damage": 0,
+        "defense": 1
+    },
+    {
+        "name": "Leg",
+        "damage": 0,
+        "defense": 1
+    },
+    {
+        "name": "Gauntlets",
+        "damage": 0,
+        "defense": 1
+    },
+    {
+        "name": "Axe",
+        "damage": 1,
+        "defense": 0
+    }
+]

@@ -35,7 +35,7 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
     return t_surface
 
 
-#def lvlup(player):
+# def lvlup(player):
 #    tablexp = {}
 #    filename = "./Database/Experience.json"
 #    try:
@@ -52,15 +52,57 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
 #                print("{} just lvl Up to {} and have {} exp".format(
 #                    player.name, player.lvl, player.xp))
 
+def drop(player):
+    if random.randrange(1, 100) < 11:
+        Randomitem = random.randrange(0, 5)
+        tabledrop = {}
+        filename = "./Database/Drops.json"
+        try:
+            with open(filename, "r") as Myfile:
+                tabledrop = json.load(Myfile)
+        except Exception:
+            raise FileExistsError("{} was not found".format(filename))
+        tabledrop = tabledrop[Randomitem]
+        for key, value in tabledrop.items():
+            if key == "name":
+                namedrop = value
+            elif key == "damage":
+                damagedrop = value
+            elif key == "defense":
+                defensedrop = value
+
+        if namedrop == player.Helmet.name:
+            player.Helmet.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Gauntlets.name:
+            player.Gauntlets.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Chest.name:
+            player.Chest.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Leg.name:
+            player.Leg.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        else:
+            player.weapon.name = namedrop
+            player.weapon.damage += damagedrop
+            print(
+                "You dropped a {} with {} of damage, It is equipped now!.".format(namedrop, damagedrop))
+
 
 def WinBattle(player, monster):
     stats = player.load_save_json_file(player.name)
     for key, value in stats.items():
         if key == "health":
             player.health = value
+    drop(player)
     #print("You have being healed")
     #player.xp += monster.xp
-    #print("{} just earned {} exp and now have {}.".format(
+    # print("{} just earned {} exp and now have {}.".format(
     #    player.name, monster.xp, player.xp))
 #   lvlup(player)
 
@@ -72,7 +114,7 @@ def LoseBattle(player, monster):
             player.health = value
     #print("You have being Revived")
     #player.xp = player.xp / 2
-    #print("{} lose exp and now have {}.".format(
+    # print("{} lose exp and now have {}.".format(
     #    player.name, player.xp))
 
 

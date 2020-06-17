@@ -134,6 +134,8 @@ class Base:
         for key, value in stats.items():
             if key == "health":
                 self.health = value
+            elif key == "p_skills":
+                self.p_skills = value
             elif key == "atkdamage":
                 self.atkdamage = value
             elif key == "defense":
