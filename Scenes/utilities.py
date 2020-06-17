@@ -32,6 +32,50 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
     return t_surface
 
 
+def drop(player):
+    print("drop")
+    if random.randrange(1, 100) < 10:
+        print("Entroi al drop")
+        Randomitem = random.randrange(0, 5)
+        tabledrop = {}
+        filename = "./Database/Drops.json"
+        try:
+            with open(filename, "r") as Myfile:
+                tabledrop = json.load(Myfile)
+        except Exception:
+            raise FileExistsError("{} was not found".format(filename))
+        tabledrop = tabledrop[Randomitem]
+        for key, value in tabledrop.items():
+            if key == "name":
+                namedrop = value
+            elif key == "damage":
+                damagedrop = value
+            elif key == "defense":
+                defensedrop = value
+
+        if namedrop == player.Helmet.name:
+            player.Helmet.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Gauntlets.name:
+            player.Gauntlets.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Chest.name:
+            player.Chest.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        elif namedrop == player.Leg.name:
+            player.Leg.defense += defensedrop
+            print(
+                "You dropped a {} with {} of defense, It is equipped now!.".format(namedrop, defensedrop))
+        else:
+            player.weapon.name = namedrop
+            player.weapon.damage += damagedrop
+            print(
+                "You dropped a {} with {} of damage, It is equipped now!.".format(namedrop, damagedrop))
+
+
 def fight(player, monster, damagetype):
     attributes = [0.00, 0.00, "player", 0.00]
     life = player.health
@@ -49,6 +93,7 @@ def fight(player, monster, damagetype):
             if monster.health <= 0:
                 player.health = life
                 attributes[3] = player.health
+                drop(player)
                 return attributes
         elif damagetype == "magic":
             damage = (player.magic + player.weapon.damage *
