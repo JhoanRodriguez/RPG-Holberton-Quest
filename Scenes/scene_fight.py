@@ -10,7 +10,7 @@ monster_name = ('Aries', 'Anaconda', 'Mosquito',
                 'MetalKnight', 'DwarfDrill', 'SpiderWoman')
 
 if not player_die or not monster_die:
-    lvl_enemy = random.randint(0, 2) if player.lvl < 3 else random.randint(0, 5)
+    lvl_enemy = random.randint(0, 2) if player.lvl < 5 else random.randint(0, 5)
     monster = Enemy("{}".format(monster_name[lvl_enemy]),
                     "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
     enemy_ = utilities.n_render(monster.avatar, (300, 250))

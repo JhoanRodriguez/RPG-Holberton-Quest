@@ -125,4 +125,21 @@ screen.blit(m_menu, (wh))
 if monster_die:
     screen.blit(m_fight, (180, 280))
 
+tablexp = {}
+filename = "./Database/Experience.json"
+try:
+    with open(filename, "r") as Myfile:
+        tablexp = json.load(Myfile)
+except Exception:
+        raise FileExistsError("{} was not found".format(filename))
+tablexp = tablexp[0]
+for key, value in tablexp.items():
+    if key == str(player.lvl):
+            max_exp = value
+                
+
+m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, player.lvl), (255, 255, 255),
+                        "./Assets/Fonts/bitwise.ttf", 40)
+
+
 screen.blit(m_lvl, (140, 130))
