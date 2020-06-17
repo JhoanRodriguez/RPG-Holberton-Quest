@@ -126,7 +126,7 @@ def fight(player, monster, damagetype):
         attributes[2] = "monster"
         if damage < 0:
             damage = 0
-        damage[1] = damage
+        attributes[1] = damage
         live = player.health - damage
         player.health = live
         if player.health <= 0:

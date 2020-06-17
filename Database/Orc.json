@@ -1,9 +1,9 @@
 [
     {
-        "health": 9,
-        "atkdamage": 15,
-        "defense": 8,
-        "magic": 6,
-        "speed": 8
+        "health": 8,
+        "atkdamage": 6,
+        "defense": 6,
+        "magic": 3,
+        "speed": 2
     }
 ]
