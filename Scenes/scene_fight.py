@@ -7,27 +7,28 @@ avatar = utilities.n_render(player.avatar, (110, 100))
 enemy_bg = utilities.n_render("Assets/BFights/bgmenu.jpg", (800, 60))
 
 monster_name = ('Aries', 'Anaconda', 'Mosquito',
-                'MetalKnight', 'DwarfDrill', 'SpiderWoman')
+                'Knight', 'DwarfDrill', 'Spider')
 
 if not player_die or not monster_die:
-    lvl_enemy = random.randint(0, 2) if player.lvl < 5 else random.randint(0, 5)
+    lvl_enemy = random.randint(
+        0, 2) if player.lvl < 1 else random.randint(3, 5)
     monster = Enemy("{}".format(monster_name[lvl_enemy]),
                     "Assets/Enemies/{}.png".format(monster_name[lvl_enemy]))
     enemy_ = utilities.n_render(monster.avatar, (300, 250))
 
 Enemies = ('Aries',
-            'Conda',
-            'Mosquito',
-            'Metal Knight',
-            'Dwarf Drill',
-            'Spider Woman')
+           'Conda',
+           'Mosquito',
+           'Knight',
+           'Dwarf Drill',
+           'Spider')
 
 mon_heal = monster.health
 
-show_name = utilities.r_text(Enemies[lvl_enemy], (240,230,140),
-                        "./Assets/Fonts/bitwise.ttf", 52)
-show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240,230,140),
-                        "./Assets/Fonts/bitwise.ttf", 52)
+show_name = utilities.r_text(Enemies[lvl_enemy], (240, 230, 140),
+                             "./Assets/Fonts/bitwise.ttf", 52)
+show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240, 230, 140),
+                                  "./Assets/Fonts/bitwise.ttf", 52)
 
 attack = utilities.r_text("Attack:", (0, 0, 0),
                           "./Assets/Fonts/bitwise.ttf", 30)
@@ -65,8 +66,8 @@ while run:
         screen.blit(avatar, (5, 420))
         screen.blit(player_health, (7, 530))
 
-        show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240,230,140),
-                            "./Assets/Fonts/bitwise.ttf", 52)
+        show_health_en = utilities.r_text("{:.2f}/{:.2f}".format(monster.health, mon_heal), (240, 230, 140),
+                                          "./Assets/Fonts/bitwise.ttf", 52)
 
         screen.blit(enemy_bg, (0, 0))
         pygame.draw.line(screen, (255, 255, 255), (0, 55), (800, 55), 8)
@@ -130,14 +131,16 @@ while run:
                     is_anim = True
                     damages = utilities.fight(player, monster, "atkdamage")
                     phy = utilities.r_text(
-                            "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
-                    weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
+                        "Physical", (255, 255, 255), "./Assets/Fonts/bitwise.ttf", 30)
+                    weapon = utilities.n_render(
+                        "Assets/Weapons/knife.png", (100, 100))
                     exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (200, 300), (532, 550)):
                     damages = utilities.fight(player, monster, "magic")
                     chol = utilities.r_text("Cholera", (255, 255, 255),
-                        "./Assets/Fonts/bitwise.ttf", 30)
-                    weapon = utilities.n_render("Assets/Weapons/cholera.png", (100, 100))    
+                                            "./Assets/Fonts/bitwise.ttf", 30)
+                    weapon = utilities.n_render(
+                        "Assets/Weapons/cholera.png", (100, 100))
                     exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (500, 637), (468, 482)):
                     exec(open("Scenes/men_play.py").read())
