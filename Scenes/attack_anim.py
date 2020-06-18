@@ -259,3 +259,5 @@ elif monster.health <= 0:
     monster_die = True
 
 is_anim = False
+
+sleep(0.3)
