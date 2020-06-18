@@ -44,7 +44,7 @@ surrender = utilities.r_text(
 stats = utilities.r_text("Stats", (255, 255, 255),
                          "./Assets/Fonts/bitwise.ttf", 30)
 
-prev_health = player.health
+prev_health = total_life
 
 life = player.health
 
