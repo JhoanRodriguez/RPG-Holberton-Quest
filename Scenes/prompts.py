@@ -15,6 +15,19 @@ elif player_die == True:
     c_x = (258, 423)
     c_y = (255, 307)
 
+tablexp = {}
+filename = "./Database/Experience.json"
+try:
+    with open(filename, "r") as Myfile:
+       tablexp = json.load(Myfile)
+except Exception:
+    raise FileExistsError("{} was not found".format(filename))
+tablexp = tablexp[0]
+for key, value in tablexp.items():
+    if key == str(player.lvl):
+        max_exp = value
+
+
 # Hover
 if utilities.p_mouse(mouse, c_x, c_y):
     # MENU

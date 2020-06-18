@@ -16,6 +16,10 @@ exit = utilities.r_text("Exit", (25, 25, 112),
 
 confirm = True
 
+# SOUNDTRACK
+pygame.mixer.init()
+
+
 # PLAYER STATS
 
 icon = utilities.n_render(player.avatar, (110, 100))
@@ -113,7 +117,8 @@ while run:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                import sys
+                sys.exit(0)
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (550, 672), (156, 200)):
                     exec(open("Scenes/scene_fight.py").read())

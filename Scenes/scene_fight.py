@@ -56,6 +56,11 @@ is_anim = False
 
 exp_updated = False
 
+# Battle Track
+pygame.mixer.music.load("./Assets/Soundtracks/BattleTrack.ogg")
+pygame.mixer.music.play(-1, 15)
+
+
 while run:
 
     mouse = pygame.mouse.get_pos()
@@ -124,7 +129,8 @@ while run:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            import sys
+            sys.exit(0)
         if not s_stat and not is_anim and not (player_die or monster_die):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (200, 307), (461, 480)):
@@ -143,6 +149,7 @@ while run:
                         "Assets/Weapons/cholera.png", (100, 100))
                     exec(open("Scenes/attack_anim.py").read())
                 if utilities.p_mouse(mouse, (500, 637), (468, 482)):
+                    pygame.mixer.music.stop()
                     exec(open("Scenes/men_play.py").read())
                 if utilities.p_mouse(mouse, (500, 570), (493, 511)):
                     s_stat = True
@@ -155,12 +162,14 @@ while run:
                     if utilities.p_mouse(mouse, c_x, c_y):
                         player_die = False
                         monster_die = False
+                        pygame.mixer.music.stop()
                         player.health = prev_health
                         exec(open("Scenes/men_play.py").read())
                     if monster_die:
                         if utilities.p_mouse(mouse, (183, 544), (291, 342)):
                             player_die = False
                             monster_die = False
+                            pygame.mixer.music.stop()
                             player.health = prev_health
                             exec(open("Scenes/scene_fight.py").read())
 
