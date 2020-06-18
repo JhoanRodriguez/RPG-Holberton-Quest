@@ -52,6 +52,13 @@ Then just execute the main.py file and enjoy the game.
 This is a BETA version of the game, so it could have some minors bugs. 
 Apologise for the inconvenience.
 
+### Credits
+
+Special thanks for the free Assets to :
+
+https://ladyluck.itch.io/battlebacks-for-rpg-maker-mv
+https://oceansdream.itch.io/nostalgia-vx-heroes?download
+
 ### Development
 
 Created by [Elkin Mejia](https://github.com/ElkinAMG) and [Jhoan Rodríguez](https://github.com/JhoanRodriguez) for a Holberton School Challenge.
