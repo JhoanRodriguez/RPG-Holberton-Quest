@@ -33,7 +33,7 @@ def r_text(text="", color=(0, 0, 0), font="", size=0):
 
 
 def drop(player):
-    if random.randrange(1, 100) < 10:
+    if random.randrange(1, 100) <= 10:
         Randomitem = random.randrange(0, 5)
         tabledrop = {}
         filename = "./Database/Drops.json"
@@ -74,6 +74,7 @@ def drop(player):
                 "You've dropped a {} with {} of damage!.".format(namedrop, damagedrop))
 
     return ("")
+
 
 def fight(player, monster, damagetype):
     attributes = [0.00, 0.00, "player", 0.00, "drop"]
