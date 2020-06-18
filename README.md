@@ -59,7 +59,7 @@ Special thanks for the free Assets to :
 
 https://ladyluck.itch.io/battlebacks-for-rpg-maker-mv
 
-https://oceansdream.itch.io/nostalgia-vx-heroes?download
+https://oceansdream.itch.io/nostalgia-vx-heroes
 
 ### Development
 
