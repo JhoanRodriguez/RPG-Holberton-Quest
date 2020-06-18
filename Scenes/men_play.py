@@ -30,9 +30,6 @@ pygame.mouse.set_cursor(*pygame.cursors.arrow)
 
 run = True
 
-player_die = False
-monster_die = False
-
 skilling = False
 
 attribs = {}
@@ -43,6 +40,11 @@ try:
             attribs = json.load(Myfile)
 except Exception:
     raise FileExistsError("{} was not found".format(filename))
+
+for a, b in attribs.items():
+    if a == "health":
+        total_life = b
+
 
 for a, b in attribs.items():
     if a == "health":
@@ -67,6 +69,10 @@ for a, b in attribs.items():
             break
 else:
     skilled = False
+
+if player_die or monster_die:
+    player.health = total_life
+
 """
 if not skilled:
     h_pointed = 0
