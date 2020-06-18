@@ -1,8 +1,10 @@
 from time import sleep
 coor = [220, 360]
 angle = 90
+clock = pygame.time.Clock()
 
 while coor[0] < 350 or coor[1] > 250:
+    clock.tick(45)
     pygame.display.update()
     pygame.display.flip()
 
@@ -38,6 +40,7 @@ a_monster = utilities.r_text("-{:.2f} health".format(damages[1]), (220, 20, 60),
 coor[0], coor[1] = 280, 130
 
 while coor[0] < 340:
+    clock.tick(45)
 
     pygame.display.update()
     pygame.display.flip()
@@ -63,6 +66,7 @@ while coor[0] < 340:
     coor[0] += 8
 
 while coor[0] >= 240:
+    clock.tick(45)
 
     pygame.display.update()
     pygame.display.flip()
@@ -92,6 +96,7 @@ if damages[2] == "player":
     coor = [280, 130]
 
     while coor[1] > 100:
+        clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
 
@@ -121,6 +126,7 @@ if damages[2] == "player":
 
     coor[0], coor[1] = 280, 420
     while coor[1] < 440:
+        clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
 
@@ -149,6 +155,7 @@ else:
     coor[0], coor[1] = 280, 420
 
     while coor[1] < 440:
+        clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
 
@@ -177,6 +184,7 @@ else:
     coor = [280, 130]
 
     while coor[1] > 100:
+        clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
 
@@ -242,7 +250,7 @@ while life >= damaged:
                                      "./Assets/Fonts/bitwise.ttf", 30)
 
 player_health = utilities.r_text("{:.2f}".format(life), (225, 225, 225),
-                                "./Assets/Fonts/bitwise.ttf", 30)
+                                 "./Assets/Fonts/bitwise.ttf", 30)
 
 
 if life <= 0:
