@@ -1,6 +1,7 @@
 # RPG HOLBERTON QUEST
 
-![Image of Holberton](https://github.com/JhoanRodriguez/RPG-Holberton-Quest/blob/master/Assets/Images/Holberton.png)
+![Holberton](https://user-images.githubusercontent.com/60363404/84971294-00c17f80-b0e2-11ea-9ecf-3aae00a4a19b.png)
+
 
 
 Holberton Quest is and Role Play Game (RPG) where you can choose between 4 different races, all of them with particular stats, defeat all your enemies, earn experience, level up and get a new stat point to be added where you need the most, choose it wisely.
@@ -57,6 +58,7 @@ Apologise for the inconvenience.
 Special thanks for the free Assets to :
 
 https://ladyluck.itch.io/battlebacks-for-rpg-maker-mv
+
 https://oceansdream.itch.io/nostalgia-vx-heroes?download
 
 ### Development
