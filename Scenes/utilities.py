@@ -71,7 +71,7 @@ def drop(player):
             player.weapon.name = namedrop
             player.weapon.damage += damagedrop
             return (
-                "You've dropped a {} with {} of damage\n\t\tIt is equipped now!.".format(namedrop, damagedrop))
+                "You've dropped a {} with {} of damage!.".format(namedrop, damagedrop))
 
     return ("")
 
