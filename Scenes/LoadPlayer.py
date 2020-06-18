@@ -20,25 +20,33 @@ while loading:
 
     pygame.draw.rect(screen, (255, 255, 255), (230, 200, 370, 250), 0)
 
-    load_p = utilities.r_text("LOAD PLAYER", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
-    
+    load_p = utilities.r_text("LOAD PLAYER", (0, 0, 0),
+                              "./Assets/Fonts/bitwise.ttf", 45)
+
     # HOVER
     if utilities.p_mouse(pygame.mouse.get_pos(), (250, 368), (402, 433)):
-        b_load_p = utilities.r_text("LOAD", (0, 0, 255), "./Assets/Fonts/bitwise.ttf", 45)
+        b_load_p = utilities.r_text(
+            "LOAD", (0, 0, 255), "./Assets/Fonts/bitwise.ttf", 45)
     else:
-        b_load_p = utilities.r_text("LOAD", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
+        b_load_p = utilities.r_text(
+            "LOAD", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
     if utilities.p_mouse(pygame.mouse.get_pos(), (418, 585), (400, 430)):
-        b_cancel = utilities.r_text("CANCEL", (255, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
+        b_cancel = utilities.r_text(
+            "CANCEL", (255, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
     else:
-        b_cancel = utilities.r_text("CANCEL", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
+        b_cancel = utilities.r_text(
+            "CANCEL", (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 45)
     if not active:
         pygame.draw.rect(screen, (220, 20, 60), (280, 280, 250, 45), 0)
-        input_box = pygame.draw.rect(screen, (125, 0, 0), (280, 280, 250, 45), 2)
+        input_box = pygame.draw.rect(
+            screen, (125, 0, 0), (280, 280, 250, 45), 2)
     else:
         pygame.draw.rect(screen, (220, 20, 60), (280, 280, 250, 45), 0)
-        input_box = pygame.draw.rect(screen, (155, 155, 155), (280, 280, 250, 45), 2)    
+        input_box = pygame.draw.rect(
+            screen, (155, 155, 155), (280, 280, 250, 45), 2)
 
-    player_name = utilities.r_text(p_name, (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 32)
+    player_name = utilities.r_text(
+        p_name, (0, 0, 0), "./Assets/Fonts/bitwise.ttf", 32)
 
     screen.blit(load_p, (255, 210))
     screen.blit(player_name, (input_box.x + 7, input_box.y + 7))
@@ -66,7 +74,7 @@ while loading:
                 active = False
                 if len(p_name) == 0 or p_name == " ":
                     p_name = "NAME"
-            
+
             if utilities.p_mouse(pygame.mouse.get_pos(), (250, 368), (402, 433)) and len(p_name) > 0:
                 if p_name != "NAME":
                     try:
@@ -82,6 +90,8 @@ while loading:
                             sp_pointed = 0
                             player_die = False
                             monster_die = False
+                            player.armor = (player.weapon.defense + player.Helmet.defense +
+                                            player.Gauntlets.defense + player.Chest.defense + player.Leg.defense)
                             exec(open("Scenes/men_play.py").read())
                         except Exception as xpp:
                             print(xpp)
