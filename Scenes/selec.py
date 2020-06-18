@@ -8,6 +8,9 @@ run = True
 sub_scenes = [True, False, False]
 data = {}
 
+player_die = False
+monster_die = False
+
 # Images loads
 gender1 = utilities.n_render("./Assets/Images/Male.png", (200, 400))
 gender2 = utilities.n_render("./Assets/Images/Female.png", (160, 350))

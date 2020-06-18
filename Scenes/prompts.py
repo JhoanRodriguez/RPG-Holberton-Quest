@@ -60,8 +60,7 @@ if not exp_updated:
 
             pygame.draw.rect(screen, (255, 165, 0), (100, 50, 500, 400), 0)
 
-            screen.blit(m_prompt, (160, 50) if message ==
-                        "You've died" else (210, 50))
+            screen.blit(m_prompt, (160, 50) if message == "You've died" else (210, 50))
             screen.blit(m_menu, (wh))
             screen.blit(m_fight, (180, 280))
 
@@ -100,10 +99,9 @@ if not exp_updated:
 
                 pygame.draw.rect(screen, (255, 165, 0), (100, 50, 500, 400), 0)
 
-                screen.blit(m_prompt, (160, 50) if message ==
-                            "You've died" else (210, 50))
+                screen.blit(m_prompt, (160, 50) if message == "You've died" else (210, 50))
                 screen.blit(m_menu, (wh))
-                screen.blit(m_fight, (180, 280))
+                #screen.blit(m_fight, (180, 280))
 
                 screen.blit(m_lvl, (140, 130))
 

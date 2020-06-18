@@ -30,9 +30,6 @@ pygame.mouse.set_cursor(*pygame.cursors.arrow)
 
 run = True
 
-player_die = False
-monster_die = False
-
 skilling = False
 
 attribs = {}
@@ -43,6 +40,11 @@ try:
             attribs = json.load(Myfile)
 except Exception:
     raise FileExistsError("{} was not found".format(filename))
+
+for a, b in attribs.items():
+    if a == "health":
+        total_life = b
+
 
 for a, b in attribs.items():
     if a == "health":
@@ -67,14 +69,7 @@ for a, b in attribs.items():
             break
 else:
     skilled = False
-"""
-if not skilled:
-    h_pointed = 0
-    d_pointed = 0
-    da_pointed = 0
-    ma_pointed = 0
-    sp_pointed = 0
-"""
+
 while run:
     mouse = pygame.mouse.get_pos()
 
@@ -121,6 +116,7 @@ while run:
                 run = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if utilities.p_mouse(mouse, (550, 672), (156, 200)):
+                    print("Men play ", total_life)
                     exec(open("Scenes/scene_fight.py").read())
                 elif utilities.p_mouse(mouse, (550, 690), (223, 263)):
                     sleep(0.2)
