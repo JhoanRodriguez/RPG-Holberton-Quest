@@ -1,6 +1,9 @@
 import pygame
 import os
+from Models.Champion import Champion
+from Models.Enemy import Enemy
 from Scenes import utilities
+from Models.Equipment import Equipment
 
 os.environ['SDL_VIDEO_WINDOW_POS'] = "250, 50"
 
@@ -27,6 +30,7 @@ holb = utilities.n_render("./Assets/Images/holbie.png", (300, 100))
 qust = utilities.n_render("./Assets/Images/quest.png", (200, 100))
 
 run = True
+loading = False
 
 while run:
     mouse = pygame.mouse.get_pos()
@@ -35,15 +39,16 @@ while run:
         if event.type == pygame.QUIT:
             run = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if utilities.p_mouse(mouse, (307, 502), (245, 300)):  # play btn
+            if utilities.p_mouse(mouse, (307, 502), (245, 300)) and not loading:  # play btn
                 exec(open("./Scenes/selec.py").read())
                 run = False
-            elif utilities.p_mouse(mouse, (307, 502), (343, 400)):  # load char
-                pass
-            elif utilities.p_mouse(mouse, (307, 502), (445, 500)):  # exit btn
+            elif utilities.p_mouse(mouse, (307, 502), (343, 400)) and not loading:  # load char
+                loading = True
+                exec(open("./Scenes/LoadPlayer.py").read())
+            elif utilities.p_mouse(mouse, (307, 502), (445, 500)) and not loading:  # exit btn
                 run = False
 
-    if run:
+    if run and not loading:
         screen.fill((50, 50, 50))
 
         screen.blit(hippo, (200, 30))

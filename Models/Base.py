@@ -132,6 +132,8 @@ class Base:
         stats = stats[0]
 
         for key, value in stats.items():
+            if key == "avatar":
+                self.avatar = value
             if key == "health":
                 self.health = value
             elif key == "p_skills":
