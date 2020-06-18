@@ -51,7 +51,7 @@ if not exp_updated:
                 if key == str(player.lvl):
                     max_exp = value
 
-            if player.xp == max_exp:
+            if player.xp >= max_exp:
                 player.lvl += 1
                 player.p_skills += 1
 

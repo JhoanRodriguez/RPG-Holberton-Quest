@@ -17,6 +17,9 @@ if damages[2] == "player":
         pygame.display.update()
         pygame.display.flip()
 
+        for event in pygame.event.get():
+            pass
+
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
@@ -49,6 +52,9 @@ if damages[2] == "player":
         pygame.display.update()
         pygame.display.flip()
 
+        for event in pygame.event.get():
+            pass
+
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
@@ -73,6 +79,9 @@ if damages[2] == "player":
 
         pygame.display.update()
         pygame.display.flip()
+
+        for event in pygame.event.get():
+            pass
 
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
@@ -102,6 +111,9 @@ if damages[2] == "player":
         clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
+
+        for event in pygame.event.get():
+            pass
 
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
@@ -136,6 +148,9 @@ if damages[2] == "player":
         while coor[1] < 230:
             clock.tick(45)
 
+            for event in pygame.event.get():
+                pass
+
             pygame.display.update()
             pygame.display.flip()
 
@@ -167,6 +182,9 @@ if damages[2] == "player":
             clock.tick(45)
             pygame.display.update()
             pygame.display.flip()
+
+            for event in pygame.event.get():
+                pass
 
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
@@ -205,6 +223,9 @@ if damages[2] == "player":
             pygame.display.update()
             pygame.display.flip()
 
+            for event in pygame.event.get():
+                pass
+
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
             screen.blit(avatar, (5, 420))
@@ -223,7 +244,11 @@ if damages[2] == "player":
 
             pygame.draw.line(screen, (255, 255, 255), (0, 400), (800, 400), 8)
 
-            life = life - 0.05
+            if life > 0:
+                life = life - 0.05
+            else:
+                life = 0
+                break
 
             player_health = utilities.r_text("{:.2f}".format(life), (220, 20, 60),
                                             "./Assets/Fonts/bitwise.ttf", 30)
@@ -236,6 +261,8 @@ if damages[2] == "player":
                                 "./Assets/Fonts/bitwise.ttf", 30)
             player_die = True
 
+        player_health = utilities.r_text("{:.2f}".format(life), (225, 225, 225),
+                                        "./Assets/Fonts/bitwise.ttf", 30)
 
 else:
     # Monster attack
@@ -247,6 +274,9 @@ else:
 
         pygame.display.update()
         pygame.display.flip()
+
+        for event in pygame.event.get():
+            pass
 
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
@@ -276,6 +306,9 @@ else:
         clock.tick(45)
         pygame.display.update()
         pygame.display.flip()
+
+        for event in pygame.event.get():
+            pass
 
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
@@ -313,6 +346,9 @@ else:
         pygame.display.update()
         pygame.display.flip()
 
+        for event in pygame.event.get():
+            pass
+
         screen.blit(back, (0, 0))
         screen.blit(bat_bg, (0, 400))
         screen.blit(avatar, (5, 420))
@@ -331,7 +367,12 @@ else:
 
         pygame.draw.line(screen, (255, 255, 255), (0, 400), (800, 400), 8)
 
-        life = life - 0.05
+        if life > 0:
+            life = life - 0.05
+        else:
+            life = 0
+            break
+
 
         player_health = utilities.r_text("{:.2f}".format(life), (220, 20, 60),
                                         "./Assets/Fonts/bitwise.ttf", 30)
@@ -343,8 +384,6 @@ else:
         player_health = utilities.r_text("{:.2f}".format(0), (220, 20, 60),
                                 "./Assets/Fonts/bitwise.ttf", 30)
         player_die = True
-    elif monster.health <= 0:
-        monster_die = True
 
     player_health = utilities.r_text("{:.2f}".format(life), (225, 255, 255),
                                 "./Assets/Fonts/bitwise.ttf", 30)
@@ -357,6 +396,9 @@ else:
             clock.tick(45)
             pygame.display.update()
             pygame.display.flip()
+
+            for event in pygame.event.get():
+                pass
 
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
@@ -390,6 +432,9 @@ else:
             pygame.display.update()
             pygame.display.flip()
 
+            for event in pygame.event.get():
+                pass
+
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
             screen.blit(avatar, (5, 420))
@@ -414,6 +459,9 @@ else:
 
             pygame.display.update()
             pygame.display.flip()
+
+            for event in pygame.event.get():
+                pass
 
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
@@ -444,6 +492,9 @@ else:
             pygame.display.update()
             pygame.display.flip()
 
+            for event in pygame.event.get():
+                pass
+
             screen.blit(back, (0, 0))
             screen.blit(bat_bg, (0, 400))
             screen.blit(avatar, (5, 420))
@@ -466,5 +517,9 @@ else:
                 screen.blit(a_player, (coor[0], coor[1]))
 
             coor[1] -= 1
+
+        if monster.health <= 0:
+            monster_die = True
+
 
 is_anim = False
