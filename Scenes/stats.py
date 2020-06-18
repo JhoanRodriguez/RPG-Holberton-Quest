@@ -1,4 +1,5 @@
 if s_stat:
+    weapon = utilities.n_render("Assets/Weapons/knife.png", (100, 100))
     pygame.mouse.set_cursor(*pygame.cursors.arrow)
     pygame.draw.rect(screen, (220, 0, 60), (150, 100, 500, 400), 0)
 

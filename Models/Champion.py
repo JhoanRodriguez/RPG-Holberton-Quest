@@ -18,8 +18,7 @@ class Champion(Base):
         self.Gauntlets = Equipment("Gauntlets")
         self.Chest = Equipment("Chest")
         self.Leg = Equipment("Leg")
-        self.armor = self.weapon.defense + self.Helmet.defense + \
-            self.Gauntlets.defense + self.Chest.defense + self.Leg.defense
+        self.armor = (self.weapon.defense + self.Helmet.defense + self.Gauntlets.defense + self.Chest.defense + self.Leg.defense)
 
         stats = super().load_json_file(race)
         super().load_character(stats)

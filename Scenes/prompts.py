@@ -4,6 +4,7 @@ if monster_die == True:
     experience = ["{}".format(player.lvl), "{}".format(player.xp)]
     message = "You win!"
     dropped = damages[4]
+    player.armor = (player.weapon.defense + player.Helmet.defense + player.Gauntlets.defense + player.Chest.defense + player.Leg.defense)
     wh = (255, 350)
     c_x = (258, 423)
     c_y = (357, 403)
