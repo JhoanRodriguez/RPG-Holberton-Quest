@@ -140,7 +140,6 @@ m_lvl = utilities.r_text("Exp: {}/{} (LvL. {})".format(player.xp, max_exp, playe
 screen.blit(m_lvl, (140, 130))
 
 if monster_die:
-    print(dropped)
     drop = utilities.r_text(dropped, (255, 255, 255),
-                             "./Assets/Fonts/bitwise.ttf", 23)
+                            "./Assets/Fonts/bitwise.ttf", 23)
     screen.blit(drop, (105, 180))
