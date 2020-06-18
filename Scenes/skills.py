@@ -123,23 +123,23 @@ while skilling:
 
     screen.blit(st_health, (30, 150))
     add_health.button_ins()
-    #less_health.button_ins()
+    # less_health.button_ins()
 
     screen.blit(st_defense, (30, 230))
     add_defense.button_ins()
-    #less_defense.button_ins()
+    # less_defense.button_ins()
 
     screen.blit(st_damage, (30, 310))
     add_damage.button_ins()
-    #less_damage.button_ins()
+    # less_damage.button_ins()
 
     screen.blit(st_magic, (30, 390))
     add_magic.button_ins()
-    #less_magic.button_ins()
+    # less_magic.button_ins()
 
     screen.blit(st_speed, (30, 470))
     add_speed.button_ins()
-    #less_speed.button_ins()
+    # less_speed.button_ins()
 
     screen.blit(get_back, (620, 545))
 
@@ -193,6 +193,11 @@ while skilling:
                 player.atkdamage += da_pointed
                 player.magic += ma_pointed
                 player.speed += sp_pointed
+                h_pointed = 0
+                d_pointed = 0
+                da_pointed = 0
+                ma_pointed = 0
+                sp_pointed = 0
 
                 player.serialize()
             elif utilities.p_mouse(mouse, (622, 783), (550, 588)):
@@ -202,23 +207,23 @@ while skilling:
 
             # Buttons Actions
             add_health.button_action()
-            #if confirm:
+            # if confirm:
             #    less_health.button_action()
 
             add_defense.button_action()
-            #if confirm:
+            # if confirm:
             #    less_defense.button_action()
 
             add_damage.button_action()
-            #if confirm:
+            # if confirm:
             #    less_damage.button_action()
 
             add_magic.button_action()
-            #if confirm:
+            # if confirm:
             #    less_magic.button_action()
 
             add_speed.button_action()
-            #if confirm:
+            # if confirm:
             #    less_speed.button_action()
 
     pygame.display.update()
